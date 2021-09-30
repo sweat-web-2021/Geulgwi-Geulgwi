@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {list-style: none;}
+a, a:hover {text-decoration: none;}
+select:focus, input:focus {outline: none;}
+
+
+/* 헤더 */
+
+header .box {
+    margin: 0 auto;
+    width: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header ul {
+    display: flex;
+}
+
+/* 로그인 */
+
+#login {
+    height: 937px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .logo img {
+    width: 200px;
+}
+
+#login .right .box {
+    display: flex;
+    flex-direction: column;
+}
+
+#login .right .box .bot {
+    align-self: flex-end;
+}
+
+/* 회원가입 */
+
+#register {
+    margin-top: 190.31px;
+
+    border: 1px solid #aaa;
+    padding: 55px 40px 20px;
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#register .logo img {
+    width: 150px;
+}
+
+#register > .box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#register > .box .mid {
+    display: flex;
+    justify-content: space-between;
+}
+
+#register > .box .btns {
+    align-self: center;
+}
+
+#register > .box .left {width: 50%;}
+#register > .box .right {width: 40%;}
+
+#passwordHint::placeholder {
+    text-align: right;
+}
+
+#register .item {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+}
+
+#register .cate .box {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
