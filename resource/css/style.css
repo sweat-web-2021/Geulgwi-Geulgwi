@@ -524,3 +524,5 @@ header ul li:not(li:nth-child(5)) {
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
 }
+
+ 
