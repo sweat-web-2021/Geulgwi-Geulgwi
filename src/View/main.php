@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./resource/bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./resource/fontawesome-free-5.15.3-web/css/all.css">
-    <link rel="stylesheet" href="./resource/css/style.css">
-</head>
-<body>
-    <header>
+<header>
         <div class="box">
             <div class="logo">
                 <img src="./resource/img/logo.png" alt="로고" title="로고">
@@ -27,8 +15,13 @@
             </nav>
 
             <div class="ect">
-                <button class="btn login">로그인</button>
-                <button class="btn register">회원가입</button>
+                <?php if(isset($_SESSION['user'])) : ?>
+                    <a href="/logout" class="btn logout">로그아웃</a>
+                    <div class="btn"><?= $_SESSION['user']->id ?></div>
+                <?php else : ?>
+                    <a href="/login" class="btn login">로그인</a>
+                    <a href="/register" class="btn register">회원가입</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>

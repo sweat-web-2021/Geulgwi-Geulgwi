@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./resource/bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./resource/fontawesome-free-5.15.3-web/css/all.css">
-    <link rel="stylesheet" href="./resource/css/style.css">
-</head>
-<body>
     <section>
         <div class="container" id="login">
             <div class="logo me-4">
@@ -18,15 +6,15 @@
 
             <div class="right">
                 <div class="box">
-                    <div class="top">
+                    <form class="top">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="userId" placeholder="아이디">
+                            <input type="text" class="form-control" id="userId" placeholder="아이디" required>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="password" placeholder="비밀번호">
+                            <input type="password" class="form-control" id="password" placeholder="비밀번호" required>
                         </div>
-                        <button style="width: 100%;" class="btn btn-primary">로그인</button>
-                    </div>
+                        <button style="width: 100%;" class="btn btn-primary login">로그인</button>
+                    </form>
                     <div class="other-login">
                         <button style="width: 100%;" class="btn naver">네이버 로그인</button>
                         <button style="width: 100%;" class="btn google">구글 로그인</button>
@@ -39,5 +27,6 @@
             </div>
         </div>
     </section>
+    <script src="./resource/js/login.js"></script>
 </body>
 </html>
