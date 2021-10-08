@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-10-07 12:21
--- 서버 버전: 10.4.17-MariaDB
--- PHP 버전: 8.0.0
+-- 생성 시간: 21-10-08 09:26
+-- 서버 버전: 10.4.11-MariaDB
+-- PHP 버전: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `user` (
   `id` varchar(150) NOT NULL,
   `pass` varchar(100) NOT NULL,
   `pass_hint` varchar(100) NOT NULL,
-  `cate` varchar(150) NOT NULL
+  `cate` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,6 +41,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `pass`, `pass_hint`, `cate`) VALUES
 ('asd', 'asdasd123', 'asd@asd.com', ''),
 ('sun_0430', 'tlsdltjs0430', 'sin243996@gmail.com', ''),
+('test', 'qwer1234', 'asd@asd.com', ''),
+('test1', 'asdasd12', 'asd@asd.com', NULL),
 ('zxc', 'zxczxc123', 'zxcz@zxc.com', '');
 
 --

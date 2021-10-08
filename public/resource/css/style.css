@@ -497,16 +497,15 @@ header ul li:not(li:nth-child(5)) {
 }
 
 #register > .box .mid {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
 }
 
 #register > .box .btns {
-    align-self: center;
+    grid-column: 1/3;
+    margin: 0 auto;
 }
-
-#register > .box .left {width: 50%;}
-#register > .box .right {width: 40%;}
 
 #passwordHint::placeholder {
     text-align: right;

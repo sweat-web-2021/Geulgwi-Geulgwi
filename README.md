@@ -5,4 +5,4 @@
 https://sweat-web-2021.github.io/Geulgwi-Geulgwi/
 <br/><br/>
 xampp 이용해서 회원 가입&로그인 기능 구현
-버그 있는거 내일중으로 수정
+버그수정 완료

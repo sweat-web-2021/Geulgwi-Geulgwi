@@ -5,8 +5,8 @@
     Route::get("/login", "ViewController@login");
     Route::get("/register", "ViewController@register");
 
+    Route::post('/login', 'ActionController@login');
     Route::get("/logout", "ActionController@logout");
-    Route::post('/registerCom', 'ActionController@registerCom');
-    Route::post('/loginCom', 'ActionController@loginCom');
+    Route::post('/register', 'ActionController@register');
 
     Route::start();
