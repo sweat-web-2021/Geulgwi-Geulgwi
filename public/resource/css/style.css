@@ -522,6 +522,34 @@ header ul li:not(li:nth-child(5)) {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
+    row-gap: 20px;
 }
 
- 
+#register .cate .box label {
+    text-align: center;
+    color: #aaa;
+}
+
+#register .cate .box input[id="temp1"]:checked ~ label[for="temp1"],
+#register .cate .box input[id="temp2"]:checked ~ label[for="temp2"],
+#register .cate .box input[id="temp3"]:checked ~ label[for="temp3"],
+#register .cate .box input[id="temp4"]:checked ~ label[for="temp4"],
+#register .cate .box input[id="temp5"]:checked ~ label[for="temp5"],
+#register .cate .box input[id="temp6"]:checked ~ label[for="temp6"],
+#register .cate .box input[id="temp7"]:checked ~ label[for="temp7"],
+#register .cate .box input[id="temp8"]:checked ~ label[for="temp8"],
+#register .cate .box input[id="temp9"]:checked ~ label[for="temp9"],
+#register .cate .box input[id="temp10"]:checked ~ label[for="temp10"],
+#register .cate .box input[id="temp11"]:checked ~ label[for="temp11"],
+#register .cate .box input[id="temp12"]:checked ~ label[for="temp12"],
+#register .cate .box input[id="temp13"]:checked ~ label[for="temp13"],
+#register .cate .box input[id="temp14"]:checked ~ label[for="temp14"],
+#register .cate .box input[id="temp15"]:checked ~ label[for="temp15"],
+#register .cate .box input[id="temp16"]:checked ~ label[for="temp16"],
+#register .cate .box input[id="temp17"]:checked ~ label[for="temp17"],
+#register .cate .box input[id="temp18"]:checked ~ label[for="temp18"],
+#register .cate .box input[id="temp19"]:checked ~ label[for="temp19"],
+#register .cate .box input[id="temp20"]:checked ~ label[for="temp20"] {
+    color: #000;
+    font-weight: bold;
+}

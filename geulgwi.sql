@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-10-08 09:26
+-- 생성 시간: 21-10-23 04:37
 -- 서버 버전: 10.4.11-MariaDB
 -- PHP 버전: 7.4.5
 
@@ -40,6 +40,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `pass`, `pass_hint`, `cate`) VALUES
 ('asd', 'asdasd123', 'asd@asd.com', ''),
+('o1', 'q1w2e3r4', 'asd@asd.com', 'temp8,temp13,temp16,temp17'),
 ('sun_0430', 'tlsdltjs0430', 'sin243996@gmail.com', ''),
 ('test', 'qwer1234', 'asd@asd.com', ''),
 ('test1', 'asdasd12', 'asd@asd.com', NULL),
