@@ -1,4 +1,4 @@
-<header>
+    <header>
         <div class="box">
             <div class="logo">
                 <img src="./resource/img/logo.png" alt="로고" title="로고">
@@ -17,7 +17,7 @@
             <div class="ect">
                 <?php if(isset($_SESSION['user'])) : ?>
                     <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->id ?></div>
+                    <div class="btn"><?= $_SESSION['user']->nick ?></div>
                 <?php else : ?>
                     <a href="/login" class="btn login">로그인</a>
                     <a href="/register" class="btn register">회원가입</a>
@@ -125,6 +125,7 @@
                         <img src="./resource/img/download.png" alt="게시물 이미지" title="게시물 이미지">
                     </div>
                 </div>
+                <a href="/list" class="btn btn-primary">더보기</a>
             </div>
         </div>
     </section>

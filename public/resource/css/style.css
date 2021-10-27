@@ -444,7 +444,16 @@ header ul li:not(li:nth-child(5)) {
 
 /* 인기게시물 */
 
+.bestWeek {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bestWeek h4 {align-self: flex-start;}
+
 .bestWeek .box {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -552,4 +561,30 @@ header ul li:not(li:nth-child(5)) {
 #register .cate .box input[id="temp20"]:checked ~ label[for="temp20"] {
     color: #000;
     font-weight: bold;
+}
+
+/* 리스트 */
+
+#list table {
+    text-align: center;
+}
+
+#list .btns {
+    display: flex;
+    justify-content: end;
+}
+
+/* 게시물 */
+
+#view .info {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#view .info span {
+    height: 28px;
+    width: 2px;
+    background-color: #aaa;
 }
