@@ -26,25 +26,6 @@
         </div>
     </header>
     <section>
-        <div class="container" id="view">
-            <h2><?= $list->title ?></h2>
-            <div class="info">
-                <div class="user"><?= $list->writer ?></div>
-                <span></span>
-                <div class="date"><?= $list->writedate ?></div>
-            </div>
-            <hr>
-            <div class="box">
-                <p><?= $list->content ?></p>
-            </div>
-            <div class="btn">
-                <?php if($list->user_id != "0") : ?>
-                    <button class="goodbtn btn btn-primary"><i style="color: #000;" class="fas fa-thumbs-up"></i></button>
-                <?php else : ?>
-                    <button class="goodbtn btn btn-primary" onclick="like(<?= $list->id ?>)"><i class="fas fa-thumbs-up"></i></button>
-                <?php endif; ?>
-                <p><?= $list->sug ?></p>
-            </div>
-        </div>
+        <?php var_dump($list); ?>
+        <?php var_dump($list1); ?>
     </section>
-    <script src="./resource/js/view.js"></script>

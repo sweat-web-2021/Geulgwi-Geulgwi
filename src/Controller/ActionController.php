@@ -59,4 +59,13 @@
             unset($_SESSION['user']);
             go('로그아웃 되었습니다.', '/');
         }
+
+        static function chklike() {
+            $code = $_POST['code'];
+
+            DB::query("INSERT INTO liketable (user_id, code) VALUES (?, ?)", [$_SESSION['user']->id, $code]);
+            DB::query("UPDATE list SET sug = sug + 1 WHERE id = ?", [$code]);
+
+            echo "like";
+        }
     }

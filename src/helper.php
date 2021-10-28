@@ -1,5 +1,5 @@
 <?php
-    function view($page, $list = []) {
+    function view($page, $list = [], $list1 = []) {
         require VIEW."/header.php";
         require VIEW."/$page.php";
         exit;
