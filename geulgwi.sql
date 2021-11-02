@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-10-23 04:37
+-- 생성 시간: 21-11-02 12:56
 -- 서버 버전: 10.4.11-MariaDB
 -- PHP 버전: 7.4.5
 
@@ -20,6 +20,55 @@ SET time_zone = "+00:00";
 --
 -- 데이터베이스: `geulgwi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `liketable`
+--
+
+CREATE TABLE `liketable` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `code` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `liketable`
+--
+
+INSERT INTO `liketable` (`id`, `user_id`, `code`) VALUES
+(1, 'asd', '1'),
+(2, 'o1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `list`
+--
+
+CREATE TABLE `list` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `writer` varchar(50) NOT NULL,
+  `writedate` datetime NOT NULL DEFAULT current_timestamp(),
+  `viewcnt` varchar(10) NOT NULL DEFAULT '0',
+  `sug` int(10) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `list`
+--
+
+INSERT INTO `list` (`id`, `title`, `content`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
+(1, 'test', 'test deth', 'zxc', '2021-10-27 17:15:32', '0', 2),
+(2, 'asd', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0),
+(3, 'asd1', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0),
+(4, 'asd2', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0),
+(5, 'asd3', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0),
+(6, 'asd4', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0),
+(7, 'asd5', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -51,10 +100,38 @@ INSERT INTO `user` (`id`, `pass`, `pass_hint`, `cate`) VALUES
 --
 
 --
+-- 테이블의 인덱스 `liketable`
+--
+ALTER TABLE `liketable`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 테이블의 인덱스 `list`
+--
+ALTER TABLE `list`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 테이블의 인덱스 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
+
+--
+-- 덤프된 테이블의 AUTO_INCREMENT
+--
+
+--
+-- 테이블의 AUTO_INCREMENT `liketable`
+--
+ALTER TABLE `liketable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 테이블의 AUTO_INCREMENT `list`
+--
+ALTER TABLE `list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

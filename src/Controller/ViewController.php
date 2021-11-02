@@ -12,7 +12,7 @@
         }
 
         static function mypage() {
-            $list = DB::fetchAll("SELECT * FROM list WHERE writer = ?", [$_SESSION['user']->nick]);
+            $list = DB::fetchAll("SELECT * FROM list WHERE writer = ?", [$_SESSION['user']->id]);
             $list1 = DB::fetchAll("SELECT l.* FROM
                                    (SELECT * FROM liketable WHERE user_id = ?) AS lt
                                    INNER JOIN list AS l ON l.id = lt.code", [$_SESSION['user']->id]);

@@ -5,7 +5,7 @@
         static function writeok() {
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $writer = $_SESSION['user']->nick;
+            $writer = $_SESSION['user']->id;
 
             DB::query("INSERT INTO list (title, content, writer) VALUES (?, ?, ?)", [$title, $content, $writer]);
             go("작성완료", '/list');
@@ -13,7 +13,6 @@
 
         static function register() {
             $id = $_POST['id'];
-            $nick = $_POST['nick'];
             $pass = $_POST['pass'];
             $passchk = $_POST['passchk'];
             $passHint = $_POST['passHint'];
@@ -24,7 +23,6 @@
             $regPass = '/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/';
 
             $idchk = DB::fetch("SELECT * FROM user WHERE id = ?", [$id]);
-            $nickchk = DB::fetch("SELECT * FROM user WHERE nick = ?", [$nick]);
 
             if($idchk) {
                 go("존재하는 아이디입니다", '/register');
@@ -33,7 +31,7 @@
             } elseif ($pass != $passchk || !preg_match($regEmail, $passHint) || !preg_match($regPass, $pass)) {
                 go("입력하신 정보를 확인해주세요", '/register');
             } else {
-                DB::query("INSERT INTO user (id, nick, pass, pass_hint, cate) VALUES (?, ?, ?, ?, ?)", [$id, $nick, $pass, $passHint, $cate]);
+                DB::query("INSERT INTO user (id, pass, pass_hint, cate) VALUES (?, ?, ?, ?)", [$id, $pass, $passHint, $cate]);
                 go("회원가입 되셨습니다", '/');
             }
             exit;

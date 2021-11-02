@@ -17,7 +17,7 @@
             <div class="ect">
                 <?php if(isset($_SESSION['user'])) : ?>
                     <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->nick ?></div>
+                    <div class="btn"><?= $_SESSION['user']->id ?></div>
                 <?php else : ?>
                     <a href="/login" class="btn login">로그인</a>
                     <a href="/register" class="btn register">회원가입</a>
@@ -26,6 +26,19 @@
         </div>
     </header>
     <section>
-        <?php var_dump($list); ?>
-        <?php var_dump($list1); ?>
+        <div class="container mypage">
+            <h3>나의 업로드 목록</h3>
+            <div class="myupload">
+                <?php foreach($list as $item) : ?>
+                    <div class="item"><a href="/view?id=<?= $item->id ?>"><?= $item->title ?></a></div>
+                <?php endforeach; ?>
+            </div>
+
+            <h3>내가 좋아요한 목록</h3>
+            <div class="mygood">
+                <?php foreach($list1 as $item) : ?>
+                    <div class="item"><a href="/view?id=<?= $item->id ?>"><?= $item->title ?></a></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </section>

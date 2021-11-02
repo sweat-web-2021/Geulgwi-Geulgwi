@@ -11,10 +11,6 @@
                             <input type="text" class="form-control" id="userId" name="id" required>
                         </div>
                         <div class="mb-3">
-                            <label for="nick">닉네임</label>
-                            <input type="text" class="form-control" id="nick" name="nick" required>
-                        </div>
-                        <div class="mb-3">
                             <label for="password">비밀번호</label>
                             <input type="password" class="form-control" id="password" placeholder="8 ~ 16자 영문, 숫자 조합" name="pass" required>
                         </div>
