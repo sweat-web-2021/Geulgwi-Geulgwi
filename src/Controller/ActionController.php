@@ -66,4 +66,14 @@
 
             echo "like";
         }
+
+        static function review() {
+            $text = $_POST['text'];
+            $code = $_POST['code'];
+
+            DB::query("INSERT INTO review (user_id, text, code) VALUES (?, ?, ?)", [$_SESSION['user']->id, $text, $code]);
+            $list = DB::fetchAll("SELECT * FROM review WHERE code = ?", [$code]);
+
+            echo json_encode($list);
+        }
     }

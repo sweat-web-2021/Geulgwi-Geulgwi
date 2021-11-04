@@ -5,10 +5,13 @@
         static function view() {
             if(!isset($_SESSION['user'])) go("로그인 해주세요", '/list');
             $id = $_GET['id'];
+            DB::query("UPDATE list SET viewcnt = viewcnt + 1 WHERE id = ?", [$id]);
+
             $list = DB::fetch("SELECT l.*, IFNULL(lt.user_id, 0) user_id FROM
                                (SELECT * FROM list WHERE id = ?) AS l
                                LEFT JOIN (SELECT * FROM liketable WHERE user_id = ?) AS lt ON l.id = lt.code", [$id, $_SESSION['user']->id]);
-            view('view', $list);
+            $review = DB::fetchAll("SELECT * FROM review WHERE code = ?", [$id]);
+            view('view', $list, $review);
         }
 
         static function mypage() {

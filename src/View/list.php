@@ -17,7 +17,7 @@
             <div class="ect">
                 <?php if(isset($_SESSION['user'])) : ?>
                     <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->nick ?></div>
+                    <div class="btn"><?= $_SESSION['user']->id ?></div>
                 <?php else : ?>
                     <a href="/login" class="btn login">로그인</a>
                     <a href="/register" class="btn register">회원가입</a>

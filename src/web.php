@@ -11,6 +11,7 @@
 
     Route::post('/login', 'ActionController@login');
     Route::get("/logout", "ActionController@logout");
+    Route::post('/review', "ActionController@review");
     Route::post('/writeok', 'ActionController@writeok');
     Route::post('/chklike', 'ActionController@chklike');
     Route::post('/register', 'ActionController@register');

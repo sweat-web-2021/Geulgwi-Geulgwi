@@ -576,17 +576,135 @@ header ul li:not(li:nth-child(5)) {
 
 /* 게시물 */
 
-#view .info {
-    width: 180px;
+#view {width: 1920px;}
+
+#view .header .logo {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#view .header .logo img {
+    width: 100%;
+}
+
+#view .header .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#view .header .profile img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+#view .content > div {
+    border: 1px solid #000;
+    border-bottom: none;
+}
+
+#view .content .top {
+    padding: 12px 24px;
+    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#view .info span {
-    height: 28px;
-    width: 2px;
-    background-color: #aaa;
+#view .content .writer_info {
+    display: flex;
+    align-items: center;
+}
+
+#view .content .writer_info img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#view .content .mid {
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#view .content .mid .collon {
+    font-size: 40px;
+    color: #999;
+}
+
+#view .content .mid .main_content {
+    font-size: 50px;
+    color: #000;
+    font-style: italic;
+}
+
+#view .content .mid .people {
+    color: #999;
+    font-size: 24px;
+}
+
+#view .content .bot {
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+#view .content .bot .btns {
+    display: flex;
+    align-items: center;
+}
+
+#view .content .bot .goodbtn {
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+#view .review > div {
+    border: 1px solid #000;
+}
+
+#view .review .top {
+    margin-top: 24px;
+    padding: 12px 24px;
+
+    min-height: 825px;
+    max-height: 825px;
+
+    overflow-y: auto;
+}
+
+#view .review .item {
+    margin-bottom: 24px;
+}
+
+#view .review .item img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+#view .review .bot {
+    height: 53px;
+    padding: 12px;
+    border: 1px solid #000;
+    border-top: none;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+#view .review .bot button {
+    position: absolute;
+    background-color: transparent;
+    border-style: none;
+    right: 5%;
 }
 
 /* 마이페이지 */

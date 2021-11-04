@@ -1,50 +1,54 @@
-    <header>
-        <div class="box">
+    <div class="row" id="view">
+        <div class="header col-2">
             <div class="logo">
-                <img src="./resource/img/logo.png" alt="로고" title="로고">
+                <img src="./resource/img/logo.png" alt="logo" title="logo">
             </div>
-
-            <nav>
-                <ul style="margin: 0; padding: 0;">
-                    <li><a href="#">책</a></li>
-                    <li><a href="#">영화</a></li>
-                    <li><a href="#">시</a></li>
-                    <li><a href="#">음악</a></li>
-                    <li><a href="#">영어</a></li>
-                </ul>
-            </nav>
-
-            <div class="ect">
-                <?php if(isset($_SESSION['user'])) : ?>
-                    <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->id ?></div>
-                <?php else : ?>
-                    <a href="/login" class="btn login">로그인</a>
-                    <a href="/register" class="btn register">회원가입</a>
-                <?php endif; ?>
+            <div class="profile">
+                <img src="./resource/img/profile.png" alt="">
+                <span style="margin-top:15px;"><?= $_SESSION['user']->id ?></span>
             </div>
         </div>
-    </header>
-    <section>
-        <div class="container" id="view">
-            <h2><?= $list->title ?></h2>
-            <div class="info">
-                <div class="user"><?= $list->writer ?></div>
-                <span></span>
-                <div class="date"><?= $list->writedate ?></div>
+        <div class="content col-8" stlye="padding-right: 0;">
+            <div class="top">
+                <span class="writer_info">
+                    <img src="./resource/img/profile.png" alt="">
+                    <span><?= $list->writer ?></span>
+                </span>
+                <i style="font-size:24px;" class="fas fa-list-ul"></i>
             </div>
-            <hr>
-            <div class="box">
-                <p><?= $list->content ?></p>
+            <div class="mid">
+                <span class="collon">“</span>
+                <p class="main_content"><b><?= $list->content ?></b></p>
+                <span class="people">신이선</span>
+                <span class="collon">”</span>
             </div>
-            <div class="btn">
-                <?php if($list->user_id != "0") : ?>
-                    <button class="goodbtn btn btn-primary"><i style="color: #000;" class="fas fa-thumbs-up"></i></button>
-                <?php else : ?>
-                    <button class="goodbtn btn btn-primary" onclick="like(<?= $list->id ?>)"><i class="fas fa-thumbs-up"></i></button>
-                <?php endif; ?>
-                <p><?= $list->sug ?></p>
+            <div class="bot">
+                <div class="btns">
+                    <?php if($list->user_id != "0") : ?>
+                        <button class="goodbtn"><i style="font-size:24px;" class="fas fa-star"></i></button>
+                    <?php else : ?>
+                        <button class="goodbtn" onclick="like(<?= $list->id ?>)"><i style="font-size:24px;" class="far fa-star"></i></button>
+                    <?php endif; ?>
+                    <p style="margin:0;"><?= $list->sug ?></p>
+                </div>
+                <i style="font-size:24px;" class="far fa-bookmark"></i>
             </div>
         </div>
-    </section>
+        <div class="review col-2">
+            <div class="top">
+                <?php foreach($list1 as $item) : ?>
+                    <div class="item">
+                        <img src="./resource/img/profile.png" alt="">
+                        <span><?= $item->text ?></span>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <form class="bot">
+                <i style="font-size:24px; margin-right:10px;" class="far fa-smile"></i>
+                <input class="form-control" name="text" type="text" placeholder="댓글 달기..." required>
+                <input type="hidden" name="code" value="<?= $list->id ?>">
+                <button class="reviewup">게시</button>
+            </form>
+        </div>
+    </div>
     <script src="./resource/js/view.js"></script>
