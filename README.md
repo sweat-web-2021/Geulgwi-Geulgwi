@@ -2,19 +2,19 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![PHP](https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=PHP&logoColor=white)
-![MariaDB](https://img.shields.io/badge/MariaDB-%23003545.svg?style=for-the-badge&logo=MariaDB&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=MySQL&logoColor=white)
 ![Apache](https://img.shields.io/badge/Apache-%23D2212B.svg?style=for-the-badge&logo=Apache&logoColor=white)
 [![image](https://user-images.githubusercontent.com/43088187/139226261-49531578-6dd0-4fe5-bbbb-f723688002bd.png)](https://github.com/sweat-web-2021/Geulgwi-Geulgwi)
 
 # Geulgwi-Geulgwi
 세상의 모든 글귀가 다 모였다! - 글귀 글귀
++ 2021.11.19 기준 사이트(이후 커밋 내용은 반영 X): http://글귀글귀.site
 
 <br>
 
 ## 목차
 1. [최근 변경사항](#최근-변경사항)
-2. [페이지 설계](#페이지-설계)
-3. [역할 분담](#역할-분담)
+2. [역할 분담](#역할-분담)
 
 <br>
 
@@ -28,18 +28,6 @@
 |2021-11-02|신이선|마이페이지 구현<br>닉네임 삭제|
 |2021-11-04|신이선|게시글 보기 디자인 반영<br>게시글 댓글 시스템 구현<br>조회수 시스템 구현|
 |2021-11-20|신이선|글쓰기 디자인 반영<br>마이페이지 디자인 & 기능 구현<br>저장 기능 추가<br>글쓰기 기능 구현 예정|
-
-<br>
-
-## 페이지 설계
-|페이지|내용|
-|:---:|:---:|
-|메인 화면|주요 글귀 미리보기<br>메인 로고<br>배너|
-|로그인 화면|아이디 및 비밀번호 입력란<br>소셜 로그인|
-|회원 가입 화면|기본 정보 입력란<br>선호 카테고리 입력란<br>본인 인증|
-|검색 화면|검색 결과 표시<br>조회수, 좋아요 기준 정렬|
-|글귀 업로드 화면|글귀, 카테고리, 출처 입력란|
-|마이 페이지|좋아요한 글귀 목록<br>업로드한 글귀 목록|
 
 <br>
 
