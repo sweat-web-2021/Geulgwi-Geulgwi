@@ -26,8 +26,6 @@
 
             if($idchk) {
                 go("존재하는 아이디입니다", '/register');
-            } elseif($nickchk) {
-                go("존재하는 닉네임입니다", '/register');
             } elseif ($pass != $passchk || !preg_match($regEmail, $passHint) || !preg_match($regPass, $pass)) {
                 go("입력하신 정보를 확인해주세요", '/register');
             } else {
