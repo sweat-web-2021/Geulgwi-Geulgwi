@@ -1,7 +1,7 @@
 <section>
         <div class="container" id="login">
             <div class="logo me-4">
-                <img src="./resource/img/logo.png" alt="로고" title="로고">
+                <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
             </div>
 
             <div class="right">
@@ -15,13 +15,13 @@
                         </div>
                         <button style="width: 100%;" class="btn btn-primary login">로그인</button>
                     </form>
-                    <div class="other-login">
-                        <button style="width: 100%;" class="btn naver">네이버 로그인</button>
-                        <button style="width: 100%;" class="btn google">구글 로그인</button>
-                    </div>
                     <div class="bot">
                         <a href="#" style="margin-right: 50px;">아이디/비밀번호 찾기</a>
                         <a href="#">회원가입</a>
+                    </div>
+                    <div class="other-login">
+                        <button style="width: 100%;" class="btn naver">네이버 로그인</button>
+                        <button style="width: 100%;" class="btn google">구글 로그인</button>
                     </div>
                 </div>
             </div>

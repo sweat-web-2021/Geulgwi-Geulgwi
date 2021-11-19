@@ -63,8 +63,23 @@
 
             DB::query("INSERT INTO liketable (user_id, code) VALUES (?, ?)", [$_SESSION['user']->id, $code]);
             DB::query("UPDATE list SET sug = sug + 1 WHERE id = ?", [$code]);
+        }
 
-            echo "like";
+        static function unlike() {
+            $code = $_POST['code'];
+
+            DB::query("DELETE FROM liketable WHERE code = ? AND user_id = ?", [$code, $_SESSION['user']->id]);
+            DB::query("UPDATE list SET sug = sug - 1 WHERE id = ?", [$code]);
+        }
+
+        static function save() {
+            $code = $_POST['code'];
+            DB::query("INSERT INTO savetable (user_id, code) VALUES (?, ?)", [$_SESSION['user']->id, $code]);
+        }
+
+        static function unsave() {
+            $code = $_POST['code'];
+            DB::query("DELETE FROM savetable WHERE user_id = ? AND code = ?", [$_SESSION['user']->id, $code]);
         }
 
         static function review() {

@@ -9,9 +9,12 @@
     Route::get("/mypage", "ViewController@mypage");
     Route::get("/register", "ViewController@register");
 
+    Route::post("/save", "ActionController@save");
     Route::post('/login', 'ActionController@login');
     Route::get("/logout", "ActionController@logout");
     Route::post('/review', "ActionController@review");
+    Route::post("/unsave", "ActionController@unsave");
+    Route::post('/unlike', 'ActionController@unlike');
     Route::post('/writeok', 'ActionController@writeok');
     Route::post('/chklike', 'ActionController@chklike');
     Route::post('/register', 'ActionController@register');

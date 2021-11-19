@@ -1,7 +1,7 @@
     <header>
         <div class="box">
             <div class="logo">
-                <img src="./resource/img/logo.png" alt="로고" title="로고">
+                <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
             </div>
 
             <nav>

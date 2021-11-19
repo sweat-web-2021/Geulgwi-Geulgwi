@@ -2,7 +2,7 @@
         <div class="container" id="register">
             <div class="box">
                 <div class="logo mb-3">
-                    <img src="./resource/img/logo.png" alt="로고" title="로고">
+                    <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
                 </div>
                 <form action='/register' method="post" class="mid">
                     <div class="left">

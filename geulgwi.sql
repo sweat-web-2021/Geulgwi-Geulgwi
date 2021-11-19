@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-04 12:08
--- 서버 버전: 10.4.11-MariaDB
--- PHP 버전: 7.4.5
+-- 생성 시간: 21-11-19 19:08
+-- 서버 버전: 10.4.17-MariaDB
+-- PHP 버전: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,8 +38,7 @@ CREATE TABLE `liketable` (
 --
 
 INSERT INTO `liketable` (`id`, `user_id`, `code`) VALUES
-(1, 'asd', '1'),
-(2, 'o1', '1');
+(2, 'asd', '1');
 
 -- --------------------------------------------------------
 
@@ -51,6 +50,7 @@ CREATE TABLE `list` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` varchar(1000) NOT NULL,
+  `copy` varchar(50) NOT NULL,
   `writer` varchar(50) NOT NULL,
   `writedate` datetime NOT NULL DEFAULT current_timestamp(),
   `viewcnt` int(10) NOT NULL DEFAULT 0,
@@ -61,14 +61,14 @@ CREATE TABLE `list` (
 -- 테이블의 덤프 데이터 `list`
 --
 
-INSERT INTO `list` (`id`, `title`, `content`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
-(1, 'test', 'test deth', 'zxc', '2021-10-27 17:15:32', 100, 2),
-(2, 'asd', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 3, 0),
-(3, 'asd1', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 1, 0),
-(4, 'asd2', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 10, 0),
-(5, 'asd3', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 0, 0),
-(6, 'asd4', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 0, 0),
-(7, 'asd5', 'zxczxczxczxc', 'asd', '2021-10-28 19:03:36', 0, 0);
+INSERT INTO `list` (`id`, `title`, `content`, `copy`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
+(1, 'test', 'test deth', '', 'zxc', '2021-10-27 17:15:32', 135, 1),
+(2, 'asd', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 8, -1),
+(3, 'asd1', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 1, 0),
+(4, 'asd2', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 10, 0),
+(5, 'asd3', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 0, 0),
+(6, 'asd4', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 0, 0),
+(7, 'asd5', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -95,6 +95,25 @@ INSERT INTO `review` (`id`, `user_id`, `text`, `code`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 테이블 구조 `savetable`
+--
+
+CREATE TABLE `savetable` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `code` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `savetable`
+--
+
+INSERT INTO `savetable` (`id`, `user_id`, `code`) VALUES
+(1, 0, 1);
+
+-- --------------------------------------------------------
+
+--
 -- 테이블 구조 `user`
 --
 
@@ -102,7 +121,7 @@ CREATE TABLE `user` (
   `id` varchar(150) NOT NULL,
   `pass` varchar(100) NOT NULL,
   `pass_hint` varchar(100) NOT NULL,
-  `cate` varchar(150) DEFAULT NULL
+  `cate` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -111,10 +130,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `pass`, `pass_hint`, `cate`) VALUES
 ('asd', 'asdasd123', 'asd@asd.com', ''),
-('o1', 'q1w2e3r4', 'asd@asd.com', 'temp8,temp13,temp16,temp17'),
 ('sun_0430', 'tlsdltjs0430', 'sin243996@gmail.com', ''),
-('test', 'qwer1234', 'asd@asd.com', ''),
-('test1', 'asdasd12', 'asd@asd.com', NULL),
+('test', 'q1w2e3r4', 'qwe@awsd.com', 'temp1,temp12,temp13,temp17'),
 ('zxc', 'zxczxc123', 'zxcz@zxc.com', '');
 
 --
@@ -128,15 +145,9 @@ ALTER TABLE `liketable`
   ADD PRIMARY KEY (`id`);
 
 --
--- 테이블의 인덱스 `list`
+-- 테이블의 인덱스 `savetable`
 --
-ALTER TABLE `list`
-  ADD PRIMARY KEY (`id`);
-
---
--- 테이블의 인덱스 `review`
---
-ALTER TABLE `review`
+ALTER TABLE `savetable`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -156,16 +167,10 @@ ALTER TABLE `liketable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- 테이블의 AUTO_INCREMENT `list`
+-- 테이블의 AUTO_INCREMENT `savetable`
 --
-ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- 테이블의 AUTO_INCREMENT `review`
---
-ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `savetable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

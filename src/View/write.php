@@ -1,7 +1,7 @@
     <header>
         <div class="box">
             <div class="logo">
-                <img src="./resource/img/logo.png" alt="로고" title="로고">
+                <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
             </div>
 
             <nav>
@@ -17,7 +17,7 @@
             <div class="ect">
                 <?php if(isset($_SESSION['user'])) : ?>
                     <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->id ?></div>
+                    <a href="/mypage" class="btn"><?= $_SESSION['user']->id ?></a>
                 <?php else : ?>
                     <a href="/login" class="btn login">로그인</a>
                     <a href="/register" class="btn register">회원가입</a>
@@ -26,15 +26,32 @@
         </div>
     </header>
     <section>
-        <div class="container">
+        <div class="container write">
             <form action="/writeok" method="post">
-                <div class='mb-3'>
-                    <label for="title" class="form-label">제목</label>
-                    <input type="text" name="title" id="title" class="form-control" required>
+                <div class="top my-4">
+                    <div style="width: 73%;">
+                        <input type="text" name="title" id="title" class="form-control" placeholder="제목을 입력해주세요" required>
+                    </div>
+
+                    <div style="width: 25%;">
+                        <select name="cates" id="cates" class="form-select">
+                            <option value="null" selected>카테고리를 선택해주세요.</option>
+                            <option value="cate2">1</option>
+                            <option value="cate3">2</option>
+                            <option value="cate4">3</option>
+                            <option value="cate5">4</option>
+                        </select>
+                    </div>
                 </div>
+
                 <div class='mb-3'>
-                    <label for="content" class="form-label">내용</label>
-                    <textarea name="content" id="content" cols="30" rows="10" class="form-control" required></textarea>
+                    <input type="text" name="copy" id="copy" class="form-control" placeholder="저작권 출처를 밝혀야 합니다 (책 제목, 사이트 주소 등)" required>
+                </div>
+
+                <div class='mb-3'>
+                    <textarea name="content" id="content" cols="30" rows="10" class="form-control" required>내용을 입력해주세요</textarea>
+
+                    <input class="form-control" type="text" name="tag" id="tag" placeholder="태그를 입력해주세요. 태그는 띄어쓰기로 구분됩니다.">
                 </div>
                 <button class="btn btn-danger cancle">취소</button>
                 <button class="btn btn-primary">완료</button>

@@ -5,7 +5,46 @@ function like(code) {
         data : {
             code
         },
-        success : res => {
+        success : () => {
+            location.reload()
+        }
+    })
+}
+
+function unlike(code) {
+    $.ajax({
+        url:`/unlike`,
+        method:'post',
+        data : {
+            code
+        },
+        success : () => {
+            location.reload()
+        }
+    })
+}
+
+function save(code) {
+    $.ajax({
+        url:`/save`,
+        method:'post',
+        data : {
+            code
+        },
+        success : () => {
+            location.reload()
+        }
+    })
+}
+
+function unsave(code) {
+    $.ajax({
+        url:`/unsave`,
+        method:'post',
+        data : {
+            code
+        },
+        success : () => {
             location.reload()
         }
     })

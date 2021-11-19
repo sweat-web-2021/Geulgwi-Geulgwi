@@ -1,7 +1,7 @@
     <div class="row" id="view">
         <div class="header col-2">
             <div class="logo">
-                <img src="./resource/img/logo.png" alt="logo" title="logo">
+                <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
             </div>
             <div class="profile">
                 <img src="./resource/img/profile.png" alt="">
@@ -24,14 +24,19 @@
             </div>
             <div class="bot">
                 <div class="btns">
-                    <?php if($list->user_id != "0") : ?>
-                        <button class="goodbtn"><i style="font-size:24px;" class="fas fa-star"></i></button>
-                    <?php else : ?>
+                    <?php if($list->user_id == null) : ?>
                         <button class="goodbtn" onclick="like(<?= $list->id ?>)"><i style="font-size:24px;" class="far fa-star"></i></button>
+                    <?php else : ?>
+                        <button class="goodbtn" onclick="unlike(<?= $list->id ?>)"><i style="font-size:24px;" class="fas fa-star"></i></button>
                     <?php endif; ?>
                     <p style="margin:0;"><?= $list->sug ?></p>
                 </div>
-                <i style="font-size:24px;" class="far fa-bookmark"></i>
+
+                <?php if($list->u_id == null) : ?>
+                    <button class="savebtn" onclick="save(<?= $list->id ?>)"><i style="font-size:24px;" class="far fa-bookmark"></i></button>
+                <?php else : ?>
+                    <button class="savebtn" onclick="unsave(<?= $list->id ?>)"><i style="font-size:24px;" class="fas fa-bookmark"></i></button>
+                <?php endif; ?>
             </div>
         </div>
         <div class="review col-2">

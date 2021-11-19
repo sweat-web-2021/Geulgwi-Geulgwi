@@ -1,7 +1,7 @@
     <header>
         <div class="box">
             <div class="logo">
-                <img src="./resource/img/logo.png" alt="로고" title="로고">
+                <a href="/"><img src="./resource/img/logo.png" alt="로고" title="로고"></a>
             </div>
 
             <nav>
@@ -17,7 +17,7 @@
             <div class="ect">
                 <?php if(isset($_SESSION['user'])) : ?>
                     <a href="/logout" class="btn logout">로그아웃</a>
-                    <div class="btn"><?= $_SESSION['user']->id ?></div>
+                    <a href="/mypage" class="btn"><?= $_SESSION['user']->id ?></a>
                 <?php else : ?>
                     <a href="/login" class="btn login">로그인</a>
                     <a href="/register" class="btn register">회원가입</a>
