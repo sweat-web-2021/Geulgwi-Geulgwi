@@ -1,54 +1,54 @@
-function like(code) {
+document.querySelector('.likebtn').addEventListener(e => {
     $.ajax({
         url:`/chklike`,
         method:'post',
         data : {
-            code
+            code : e.target.dataset.id
         },
         success : () => {
             location.reload()
         }
     })
-}
+}, {once:true})
 
-function unlike(code) {
+document.querySelector('.unlikebtn').addEventListener(e => {
     $.ajax({
         url:`/unlike`,
         method:'post',
         data : {
-            code
+            code : e.target.dataset.id
         },
         success : () => {
             location.reload()
         }
     })
-}
+}, {once:true})
 
-function save(code) {
+document.querySelector('.savebtn').addEventListener(e => {
     $.ajax({
         url:`/save`,
         method:'post',
         data : {
-            code
+            code : e.target.dataset.id
         },
         success : () => {
             location.reload()
         }
     })
-}
+}, {once:true})
 
-function unsave(code) {
+document.querySelector('.unsavebtn').addEventListener(e => {
     $.ajax({
         url:`/unsave`,
         method:'post',
         data : {
-            code
+            code : e.target.dataset.id
         },
         success : () => {
             location.reload()
         }
     })
-}
+}, {once:true})
 
 $('.reviewup').on('click', e => {
     if(document.querySelector('input[name="text"]').value == '') return

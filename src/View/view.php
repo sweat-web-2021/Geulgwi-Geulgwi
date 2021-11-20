@@ -19,23 +19,23 @@
             <div class="mid">
                 <span class="collon">“</span>
                 <p class="main_content"><b><?= $list->content ?></b></p>
-                <span class="people">신이선</span>
+                <span class="people"><?= $list->copy ?></span>
                 <span class="collon">”</span>
             </div>
             <div class="bot">
                 <div class="btns">
                     <?php if($list->user_id == null) : ?>
-                        <button class="goodbtn" onclick="like(<?= $list->id ?>)"><i style="font-size:24px;" class="far fa-star"></i></button>
+                        <button data-id="<?= $list->id ?>" class="goodbtn likebtn"><i style="font-size:24px;" class="far fa-star"></i></button>
                     <?php else : ?>
-                        <button class="goodbtn" onclick="unlike(<?= $list->id ?>)"><i style="font-size:24px;" class="fas fa-star"></i></button>
+                        <button data-id="<?= $list->id ?>" class="goodbtn unlikebtn"><i style="font-size:24px;" class="fas fa-star"></i></button>
                     <?php endif; ?>
                     <p style="margin:0;"><?= $list->sug ?></p>
                 </div>
 
                 <?php if($list->u_id == null) : ?>
-                    <button class="savebtn" onclick="save(<?= $list->id ?>)"><i style="font-size:24px;" class="far fa-bookmark"></i></button>
+                    <button data-id="<?= $list->id ?>" class="savebtn"><i style="font-size:24px;" class="far fa-bookmark"></i></button>
                 <?php else : ?>
-                    <button class="savebtn" onclick="unsave(<?= $list->id ?>)"><i style="font-size:24px;" class="fas fa-bookmark"></i></button>
+                    <button data-id="<?= $list->id ?>" class="unsavebtn"><i style="font-size:24px;" class="fas fa-bookmark"></i></button>
                 <?php endif; ?>
             </div>
         </div>

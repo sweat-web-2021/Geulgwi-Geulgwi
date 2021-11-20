@@ -487,7 +487,7 @@ header ul li:not(li:nth-child(5)) {
     margin-top: 190.31px;
 
     border: 1px solid #aaa;
-    padding: 55px 40px 20px;
+    padding: 45px 40px 15px;
     border-radius: 30px;
 
     display: flex;
@@ -527,6 +527,12 @@ header ul li:not(li:nth-child(5)) {
     border: 1px solid #aaa;
 }
 
+#register .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 #register .cate .box {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -548,17 +554,7 @@ header ul li:not(li:nth-child(5)) {
 #register .cate .box input[id="temp7"]:checked ~ label[for="temp7"],
 #register .cate .box input[id="temp8"]:checked ~ label[for="temp8"],
 #register .cate .box input[id="temp9"]:checked ~ label[for="temp9"],
-#register .cate .box input[id="temp10"]:checked ~ label[for="temp10"],
-#register .cate .box input[id="temp11"]:checked ~ label[for="temp11"],
-#register .cate .box input[id="temp12"]:checked ~ label[for="temp12"],
-#register .cate .box input[id="temp13"]:checked ~ label[for="temp13"],
-#register .cate .box input[id="temp14"]:checked ~ label[for="temp14"],
-#register .cate .box input[id="temp15"]:checked ~ label[for="temp15"],
-#register .cate .box input[id="temp16"]:checked ~ label[for="temp16"],
-#register .cate .box input[id="temp17"]:checked ~ label[for="temp17"],
-#register .cate .box input[id="temp18"]:checked ~ label[for="temp18"],
-#register .cate .box input[id="temp19"]:checked ~ label[for="temp19"],
-#register .cate .box input[id="temp20"]:checked ~ label[for="temp20"] {
+#register .cate .box input[id="temp10"]:checked ~ label[for="temp10"]{
     color: #000;
     font-weight: bold;
 }

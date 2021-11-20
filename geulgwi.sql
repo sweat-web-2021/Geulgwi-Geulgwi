@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-19 19:08
+-- 생성 시간: 21-11-20 19:16
 -- 서버 버전: 10.4.17-MariaDB
 -- PHP 버전: 8.0.0
 
@@ -62,13 +62,14 @@ CREATE TABLE `list` (
 --
 
 INSERT INTO `list` (`id`, `title`, `content`, `copy`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
-(1, 'test', 'test deth', '', 'zxc', '2021-10-27 17:15:32', 135, 1),
-(2, 'asd', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 8, -1),
-(3, 'asd1', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 1, 0),
-(4, 'asd2', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 10, 0),
-(5, 'asd3', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 0, 0),
-(6, 'asd4', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 0, 0),
-(7, 'asd5', 'zxczxczxczxc', '', 'asd', '2021-10-28 19:03:36', 2, 0);
+(1, 'test', 'test deth', '신이선', 'zxc', '2021-10-27 17:15:32', 135, 1),
+(2, 'asd', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 8, 0),
+(3, 'asd1', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 1, 0),
+(4, 'asd2', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 10, 0),
+(5, 'asd3', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 0, 0),
+(6, 'asd4', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 0, 0),
+(7, 'asd5', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 3, 0),
+(8, 'ㅅㄷㄴㅅ', 'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ', 'ㅅㄷㄴㅅ', 'asd', '2021-11-21 02:53:41', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -145,6 +146,18 @@ ALTER TABLE `liketable`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 테이블의 인덱스 `list`
+--
+ALTER TABLE `list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 테이블의 인덱스 `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 테이블의 인덱스 `savetable`
 --
 ALTER TABLE `savetable`
@@ -165,6 +178,18 @@ ALTER TABLE `user`
 --
 ALTER TABLE `liketable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 테이블의 AUTO_INCREMENT `list`
+--
+ALTER TABLE `list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- 테이블의 AUTO_INCREMENT `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 테이블의 AUTO_INCREMENT `savetable`

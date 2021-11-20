@@ -6,8 +6,9 @@
             $title = $_POST['title'];
             $content = $_POST['content'];
             $writer = $_SESSION['user']->id;
+            $copy = $_POST['copy'];
 
-            DB::query("INSERT INTO list (title, content, writer) VALUES (?, ?, ?)", [$title, $content, $writer]);
+            DB::query("INSERT INTO list (title, content, copy, writer) VALUES (?, ?, ?, ?)", [$title, $content, $copy, $writer]);
             go("작성완료", '/list');
         }
 
@@ -26,6 +27,8 @@
 
             if($idchk) {
                 go("존재하는 아이디입니다", '/register');
+            } elseif($nickchk) {
+                go("존재하는 닉네임입니다", '/register');
             } elseif ($pass != $passchk || !preg_match($regEmail, $passHint) || !preg_match($regPass, $pass)) {
                 go("입력하신 정보를 확인해주세요", '/register');
             } else {
@@ -88,5 +91,16 @@
             $list = DB::fetchAll("SELECT * FROM review WHERE code = ?", [$code]);
 
             echo json_encode($list);
+        }
+
+        static function editok() {
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $copy = $_POST['copy'];
+
+            DB::query("UPDATE list SET title = ?, content = ?, copy = ? WHERE id = ?", [$title, $content, $copy, $id]);
+
+            go("수정 완료", '/view?id='.$id);
         }
     }

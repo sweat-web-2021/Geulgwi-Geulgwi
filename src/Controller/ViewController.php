@@ -49,4 +49,12 @@
         static function main() {
             view('main');
         }
+
+        static function edit() {
+            if(!isset($_SESSION['user'])) go("권한이 없습니다", '/list');
+
+            $id = $_GET['id'];
+            $list = DB::fetch("SELECT * FROM list WHERE id = ?", [$id]);
+            view1('edit', $list, $id);
+        }
     }
