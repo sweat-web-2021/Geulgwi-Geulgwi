@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-20 19:16
+-- 생성 시간: 21-11-23 18:40
 -- 서버 버전: 10.4.17-MariaDB
 -- PHP 버전: 8.0.0
 
@@ -51,6 +51,7 @@ CREATE TABLE `list` (
   `title` varchar(100) NOT NULL,
   `content` varchar(1000) NOT NULL,
   `copy` varchar(50) NOT NULL,
+  `cate` varchar(100) NOT NULL,
   `writer` varchar(50) NOT NULL,
   `writedate` datetime NOT NULL DEFAULT current_timestamp(),
   `viewcnt` int(10) NOT NULL DEFAULT 0,
@@ -61,15 +62,16 @@ CREATE TABLE `list` (
 -- 테이블의 덤프 데이터 `list`
 --
 
-INSERT INTO `list` (`id`, `title`, `content`, `copy`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
-(1, 'test', 'test deth', '신이선', 'zxc', '2021-10-27 17:15:32', 135, 1),
-(2, 'asd', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 8, 0),
-(3, 'asd1', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 1, 0),
-(4, 'asd2', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 10, 0),
-(5, 'asd3', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 0, 0),
-(6, 'asd4', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 0, 0),
-(7, 'asd5', 'zxczxczxczxc', '신이선', 'asd', '2021-10-28 19:03:36', 3, 0),
-(8, 'ㅅㄷㄴㅅ', 'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ', 'ㅅㄷㄴㅅ', 'asd', '2021-11-21 02:53:41', 1, 0);
+INSERT INTO `list` (`id`, `title`, `content`, `copy`, `cate`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
+(1, 'test', 'test deth', '신이선', '책', 'zxc', '2021-10-27 17:15:32', 135, 1),
+(2, 'asd', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 18, 0),
+(3, 'asd1', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 2, 0),
+(4, 'asd2', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 74, 0),
+(5, 'asd3', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 1, 0),
+(6, 'asd4', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 0, 0),
+(7, 'asd5', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 3, 0),
+(8, 'ㅅㄷㄴㅅ', 'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ', 'ㅅㄷㄴㅅ', '책', 'asd', '2021-11-21 02:53:41', 1, 0),
+(9, 'catetest', '내용을 입력해', 'my', '책', 'asd', '2021-11-23 20:17:17', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,8 @@ CREATE TABLE `review` (
 INSERT INTO `review` (`id`, `user_id`, `text`, `code`) VALUES
 (1, 'asd', 'asdasd', '1'),
 (2, 'asd', 'asdasd', '4'),
-(3, 'asd', 'zxcxczxczxzc', '4');
+(3, 'asd', 'zxcxczxczxzc', '4'),
+(4, 'img1', 'asdasdasdasd', '4');
 
 -- --------------------------------------------------------
 
@@ -121,19 +124,21 @@ INSERT INTO `savetable` (`id`, `user_id`, `code`) VALUES
 CREATE TABLE `user` (
   `id` varchar(150) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `pass_hint` varchar(100) NOT NULL,
-  `cate` varchar(150) NOT NULL
+  `cate` varchar(150) DEFAULT NULL,
+  `profile` varchar(1000) NOT NULL DEFAULT 'profile.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 테이블의 덤프 데이터 `user`
 --
 
-INSERT INTO `user` (`id`, `pass`, `pass_hint`, `cate`) VALUES
-('asd', 'asdasd123', 'asd@asd.com', ''),
-('sun_0430', 'tlsdltjs0430', 'sin243996@gmail.com', ''),
-('test', 'q1w2e3r4', 'qwe@awsd.com', 'temp1,temp12,temp13,temp17'),
-('zxc', 'zxczxc123', 'zxcz@zxc.com', '');
+INSERT INTO `user` (`id`, `pass`, `cate`, `profile`) VALUES
+('asd', 'asdasd123', '', 'profile.png'),
+('img', 'q1w2e3r4', NULL, 'profile.png'),
+('img1', 'q1w2e3r4', '책', '1637679916165a40b02cd134c0d.png'),
+('sun_0430', 'tlsdltjs0430', '', 'profile.png'),
+('test', 'q1w2e3r4', 'temp1,temp12,temp13,temp17', 'profile.png'),
+('zxc', 'zxczxc123', '', 'profile.png');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -183,13 +188,13 @@ ALTER TABLE `liketable`
 -- 테이블의 AUTO_INCREMENT `list`
 --
 ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 테이블의 AUTO_INCREMENT `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 테이블의 AUTO_INCREMENT `savetable`

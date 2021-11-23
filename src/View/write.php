@@ -35,11 +35,10 @@
 
                     <div style="width: 25%;">
                         <select name="cates" id="cates" class="form-select">
-                            <option value="null" selected>카테고리를 선택해주세요.</option>
-                            <option value="cate2">1</option>
-                            <option value="cate3">2</option>
-                            <option value="cate4">3</option>
-                            <option value="cate5">4</option>
+                            <option value="책" selected>책</option>
+                            <option value="시">시</option>
+                            <option value="음악">음악</option>
+                            <option value="영화">영화</option>
                         </select>
                     </div>
                 </div>

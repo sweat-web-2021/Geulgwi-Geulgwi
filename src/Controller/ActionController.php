@@ -7,8 +7,9 @@
             $content = $_POST['content'];
             $writer = $_SESSION['user']->id;
             $copy = $_POST['copy'];
+            $cate = $_POST['cates'];
 
-            DB::query("INSERT INTO list (title, content, copy, writer) VALUES (?, ?, ?, ?)", [$title, $content, $copy, $writer]);
+            DB::query("INSERT INTO list (title, content, copy, cate, writer) VALUES (?, ?, ?, ?, ?)", [$title, $content, $copy, $cate, $writer]);
             go("작성완료", '/list');
         }
 
@@ -16,23 +17,51 @@
             $id = $_POST['id'];
             $pass = $_POST['pass'];
             $passchk = $_POST['passchk'];
-            $passHint = $_POST['passHint'];
-            $cate = $_POST['cate'];
-            $cate = join(',', $cate);
+            $cate = isset($_POST['cate']) ? join(',', $_POST['cate']) : null;
 
-            $regEmail = '/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i';
+            $img = isset($_FILES['profile']) ? $_FILES['profile']['tmp_name'] : false;
+
             $regPass = '/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/';
 
             $idchk = DB::fetch("SELECT * FROM user WHERE id = ?", [$id]);
 
             if($idchk) {
                 go("존재하는 아이디입니다", '/register');
-            } elseif($nickchk) {
-                go("존재하는 닉네임입니다", '/register');
-            } elseif ($pass != $passchk || !preg_match($regEmail, $passHint) || !preg_match($regPass, $pass)) {
+            } elseif ($pass != $passchk || !preg_match($regPass, $pass)) {
                 go("입력하신 정보를 확인해주세요", '/register');
+            } elseif($img) {
+                $fileTypeExt = explode("/", $_FILES['profile']['type']);
+                $fileType = $fileTypeExt[0];
+                $fileExt = $fileTypeExt[1];
+                $extStatus = false;
+
+                switch($fileExt) {
+                    case 'jpeg':
+                    case 'jpg':
+                    case 'png':
+                        $extStatus = true;
+                        break;
+                    default:
+                        go("이미지 파일만 사용할 수 있습니다.", "/");
+                        exit;
+                }
+
+                if($fileType == 'image') {
+                    if($extStatus) {
+                        $imgname = time().$_FILES['profile']['name'];
+                        $resFile = "./profile/".$imgname;
+
+                        move_uploaded_file($img, $resFile);
+                        
+                        DB::query("INSERT INTO user (id, pass, cate, profile) VALUES (?, ?, ?, ?)", [$id, $pass, $cate, $imgname]);
+                        go("회원가입 되셨습니다", '/');
+                    } else {
+                        go("이미지 파일이 아닙니다.", "/");
+                        exit;
+                    }
+                }
             } else {
-                DB::query("INSERT INTO user (id, pass, pass_hint, cate) VALUES (?, ?, ?, ?)", [$id, $pass, $passHint, $cate]);
+                DB::query("INSERT INTO user (id, pass, cate) VALUES (?, ?, ?)", [$id, $pass, $cate]);
                 go("회원가입 되셨습니다", '/');
             }
             exit;
@@ -88,7 +117,9 @@
             $code = $_POST['code'];
 
             DB::query("INSERT INTO review (user_id, text, code) VALUES (?, ?, ?)", [$_SESSION['user']->id, $text, $code]);
-            $list = DB::fetchAll("SELECT * FROM review WHERE code = ?", [$code]);
+            $list = DB::fetchAll("SELECT * FROM
+                                  (SELECT * FROM review WHERE code = ?) AS r
+                                  LEFT JOIN user AS u ON r.user_id = u.id", [$code]);
 
             echo json_encode($list);
         }

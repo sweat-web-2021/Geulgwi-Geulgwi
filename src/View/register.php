@@ -4,7 +4,7 @@
                 <div class="logo mb-3">
                     <h2>회원가입</h2>
                 </div>
-                <form action='/register' method="post" class="mid">
+                <form action='/register' method="post" class="mid" enctype="multipart/form-data">
                     <div class="left">
                         <div class="mb-3">
                             <label for="userId">아이디</label>
@@ -18,40 +18,24 @@
                             <label for="passchk">비밀번호 확인</label>
                             <input type="password" class="form-control" id="passchk" name="passchk" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="passwordHint">비밀번호 힌트</label>
-                            <input type="text" class="form-control" id="passwordHint" placeholder="@gmail.com" name="passHint" required>
-                        </div>
                     </div>
     
                     <div class="right">
-                        <div class="img">
-                            <input type="file" name="profile" id="profile">
+                        <div class="img mb-4">
+                            <img src="./resource/img/profile.png" alt="" class="imgPreview">
+                            <input type="file" name="profile" id="profile" accept='image/*'>
                         </div>
                         <div class="cate mb-3">
                             <h5 class="mb-4">카테고리</h5>
                             <div class="box">
-                                <input type="checkbox" value="temp1" name="cate[]" id="temp1" hidden>
-                                <input type="checkbox" value="temp2" name="cate[]" id="temp2" hidden>
-                                <input type="checkbox" value="temp3" name="cate[]" id="temp3" hidden>
-                                <input type="checkbox" value="temp4" name="cate[]" id="temp4" hidden>
-                                <input type="checkbox" value="temp5" name="cate[]" id="temp5" hidden>
-                                <input type="checkbox" value="temp6" name="cate[]" id="temp6" hidden>
-                                <input type="checkbox" value="temp7" name="cate[]" id="temp7" hidden>
-                                <input type="checkbox" value="temp8" name="cate[]" id="temp8" hidden>
-                                <input type="checkbox" value="temp9" name="cate[]" id="temp9" hidden>
-                                <input type="checkbox" value="temp10" name="cate[]" id="temp10" hidden>
-
-                                <label for="temp1">temp1</label>
-                                <label for="temp2">temp2</label>
-                                <label for="temp3">temp3</label>
-                                <label for="temp4">temp4</label>
-                                <label for="temp5">temp5</label>
-                                <label for="temp6">temp6</label>
-                                <label for="temp7">temp7</label>
-                                <label for="temp8">temp8</label>
-                                <label for="temp9">temp9</label>
-                                <label for="temp10">temp10</label>
+                                <input type="checkbox" value="책" name="cate[]" id="temp1">
+                                <label for="temp1">책</label>
+                                <input type="checkbox" value="시" name="cate[]" id="temp2">
+                                <label for="temp2">시</label>
+                                <input type="checkbox" value="음악" name="cate[]" id="temp3">
+                                <label for="temp3">음악</label>
+                                <input type="checkbox" value="영화" name="cate[]" id="temp4">
+                                <label for="temp4">영화</label>
                             </div>
                         </div>
                     </div>

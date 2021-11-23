@@ -533,15 +533,23 @@ header ul li:not(li:nth-child(5)) {
     justify-content: space-between;
 }
 
+#register .right img {
+    border-radius: 50%;
+    width: 150px;
+}
+
 #register .cate .box {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr 8fr);
     gap: 10px;
-    row-gap: 20px;
+}
+
+#register .cate .box > * {
+    margin: auto 0;
 }
 
 #register .cate .box label {
-    text-align: center;
+    
     color: #aaa;
 }
 
@@ -560,6 +568,35 @@ header ul li:not(li:nth-child(5)) {
 }
 
 /* 리스트 */
+
+#list .cate {
+    display: flex;
+    justify-content: center;
+}
+
+#list .cate div {
+    padding: 0 15px;
+    margin-right: 1px;
+    font-size: 20px;
+    color: #aaa;
+    font-weight: bold;
+}
+
+#list .cate div.act {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+#list .list .pan {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+
+    color: #fff;
+    background: #003964;
+}
 
 #list table {
     text-align: center;

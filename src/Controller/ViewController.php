@@ -3,16 +3,19 @@
     use App\DB;
     class ViewController {
         static function view() {
-            if(!isset($_SESSION['user'])) go("로그인 해주세요", '/list');
             $id = $_GET['id'];
+            $userid = isset($_SESSION['user']) ? $_SESSION['user']->id : null;
             DB::query("UPDATE list SET viewcnt = viewcnt + 1 WHERE id = ?", [$id]);
 
             $list = DB::fetch("SELECT * FROM
                                (SELECT * FROM list WHERE id = ?) AS l
+                               LEFT JOIN (SELECT id AS wid, profile AS wpro FROM user) AS w ON w.wid = l.writer
                                LEFT JOIN (SELECT code, user_id FROM liketable WHERE user_id = ?) AS lt ON l.id = lt.code
                                LEFT JOIN (SELECT code, user_id AS u_id FROM savetable WHERE user_id = ?) AS st ON l.id = st.code",
-                               [$id, $_SESSION['user']->id, $_SESSION['user']->id]);
-            $review = DB::fetchAll("SELECT * FROM review WHERE code = ?", [$id]);
+                               [$id, $userid, $userid]);
+            $review = DB::fetchAll("SELECT * FROM 
+                                    (SELECT * FROM review WHERE code = ?) AS r
+                                    LEFT JOIN user AS u ON u.id = r.user_id", [$id]);
             view('view', $list, $review);
         }
 
@@ -29,7 +32,10 @@
         }
 
         static function list() {
-            $list = DB::fetchAll("SELECT * FROM list");
+            //여기 해야됨
+            $list = DB::fetchAll("SELECT DISTINCT l.* FROM
+                                  list AS l
+                                  LEFT JOIN review AS r ON l.id = r.code");
             view('list', $list);
         }
 

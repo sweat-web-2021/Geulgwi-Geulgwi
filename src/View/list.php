@@ -27,6 +27,42 @@
     </header>
     <section>
         <div class="container" id="list">
+            <div class="cate my-5">
+                <div class="act">책</div>
+                <div class="">시</div>
+                <div class="">음악</div>
+                <div class="">영화</div>
+            </div>
+
+            <div class="list">
+                <?php foreach($list as $item) : ?>
+                    <div class="item">
+                        <div class="info">
+                            <?= str_replace("-", ".", explode(" ", $item->writedate)[0]) ?> | <?= $item->viewcnt ?> 읽음
+                        </div>
+
+                        <div class="cateinfo my-2">
+                            <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                        </div>
+                        <h2><?= $item->title ?></h2>
+                        <p>
+                            <?= $item->content ?>
+                        </p>
+
+                        <div class="jab">
+                            <div class="good">
+                                <i style="font-size:24px;" class="far fa-star"></i>
+                                <?= $item->sug ?>
+                            </div>
+                            <div class="coment">
+                                <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                <?= $item->cnt ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
             <table class="table my-5">
                 <thead>
                     <tr>
@@ -51,8 +87,17 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <div class="btns">
-                <a class="btn btn-primary" href="/write">글쓰기</a>
-            </div>
+
+            <?php if(isset($_SESSION['user'])) : ?>
+                <div class="btns">
+                    <a class="btn btn-primary" href="/write">글쓰기</a>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
+
+    <?php 
+        echo "<pre>";
+        var_dump($list);
+        echo "</pre>";
+    ?>

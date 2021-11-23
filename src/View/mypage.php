@@ -29,7 +29,7 @@
         <div class="user_info">
             <div class="box">
                 <div class="image" style="margin-right:30px">
-                    <img src="./resource/img/profile.png" alt="">
+                    <img src="./profile/<?= $_SESSION['user']->profile ?>" alt="user_profile">
                 </div>
                 <div class="text">
                     <div style="font-size:30pt" class="user_name"><?= $_SESSION['user']->id ?></div>
@@ -60,7 +60,7 @@
             <div class="post">
                 <?php foreach($list as $item) : ?>
                     <div class="card" style="width: 18rem;">
-                        <img src="./resource/img/profile.png" class="card-img-top" alt="...">
+                        <img src="./profile/profile.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?= $item->title ?></h5>
                             <p class="card-text"><?= $item->content ?></p>
@@ -73,7 +73,7 @@
             <div class="like">
                 <?php foreach($list1 as $item) : ?>
                     <div class="card" style="width: 18rem;">
-                        <img src="./resource/img/profile.png" class="card-img-top" alt="...">
+                        <img src="./profile/profile.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?= $item->title ?></h5>
                             <p class="card-text"><?= $item->content ?></p>
@@ -86,7 +86,7 @@
             <div class="save">
                 <?php foreach($list2 as $item) : ?>
                     <div class="card" style="width: 18rem;">
-                        <img src="./resource/img/profile.png" class="card-img-top" alt="...">
+                        <img src="./profile/profile.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?= $item->title ?></h5>
                             <p class="card-text"><?= $item->content ?></p>
