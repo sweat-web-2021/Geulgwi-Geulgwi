@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-23 18:40
+-- 생성 시간: 21-11-24 15:17
 -- 서버 버전: 10.4.17-MariaDB
 -- PHP 버전: 8.0.0
 
@@ -55,23 +55,24 @@ CREATE TABLE `list` (
   `writer` varchar(50) NOT NULL,
   `writedate` datetime NOT NULL DEFAULT current_timestamp(),
   `viewcnt` int(10) NOT NULL DEFAULT 0,
-  `sug` int(10) NOT NULL DEFAULT 0
+  `sug` int(10) NOT NULL DEFAULT 0,
+  `recnt` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 테이블의 덤프 데이터 `list`
 --
 
-INSERT INTO `list` (`id`, `title`, `content`, `copy`, `cate`, `writer`, `writedate`, `viewcnt`, `sug`) VALUES
-(1, 'test', 'test deth', '신이선', '책', 'zxc', '2021-10-27 17:15:32', 135, 1),
-(2, 'asd', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 18, 0),
-(3, 'asd1', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 2, 0),
-(4, 'asd2', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 74, 0),
-(5, 'asd3', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 1, 0),
-(6, 'asd4', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 0, 0),
-(7, 'asd5', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 3, 0),
-(8, 'ㅅㄷㄴㅅ', 'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ', 'ㅅㄷㄴㅅ', '책', 'asd', '2021-11-21 02:53:41', 1, 0),
-(9, 'catetest', '내용을 입력해', 'my', '책', 'asd', '2021-11-23 20:17:17', 1, 0);
+INSERT INTO `list` (`id`, `title`, `content`, `copy`, `cate`, `writer`, `writedate`, `viewcnt`, `sug`, `recnt`) VALUES
+(1, 'test', 'test', '신이선', '시', 'zxc', '2021-10-27 17:15:32', 195, 1, 1),
+(2, 'asd', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 91, 0, 1),
+(3, 'asd1', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 3, 0, 0),
+(4, 'asd2', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 74, 0, 3),
+(5, 'asd3', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 1, 0, 0),
+(6, 'asd4', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 0, 0, 0),
+(7, 'asd5', 'zxczxczxczxc', '신이선', '책', 'asd', '2021-10-28 19:03:36', 3, 0, 0),
+(8, 'ㅅㄷㄴㅅ', 'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ', 'ㅅㄷㄴㅅ', '책', 'asd', '2021-11-21 02:53:41', 1, 0, 0),
+(9, 'catetest', '내용을 입력해', 'my', '책', 'asd', '2021-11-23 20:17:17', 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,8 @@ INSERT INTO `review` (`id`, `user_id`, `text`, `code`) VALUES
 (1, 'asd', 'asdasd', '1'),
 (2, 'asd', 'asdasd', '4'),
 (3, 'asd', 'zxcxczxczxzc', '4'),
-(4, 'img1', 'asdasdasdasd', '4');
+(4, 'img1', 'asdasdasdasd', '4'),
+(5, 'zxc', 'asdasdasdzxc', '2');
 
 -- --------------------------------------------------------
 
@@ -107,13 +109,6 @@ CREATE TABLE `savetable` (
   `user_id` int(11) NOT NULL,
   `code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 테이블의 덤프 데이터 `savetable`
---
-
-INSERT INTO `savetable` (`id`, `user_id`, `code`) VALUES
-(1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -182,19 +177,19 @@ ALTER TABLE `user`
 -- 테이블의 AUTO_INCREMENT `liketable`
 --
 ALTER TABLE `liketable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 테이블의 AUTO_INCREMENT `list`
 --
 ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 테이블의 AUTO_INCREMENT `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 테이블의 AUTO_INCREMENT `savetable`

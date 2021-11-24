@@ -4,12 +4,13 @@
     Route::get("/", "ViewController@main");
     Route::get("/list", "ViewController@list");
     Route::get("/view", "ViewController@view");
-    Route::get("/edit", "ViewConttoller@edit");
+    Route::get("/edit", "ViewController@edit");
     Route::get("/login", "ViewController@login");
     Route::get("/write", "ViewController@write");
     Route::get("/mypage", "ViewController@mypage");
     Route::get("/register", "ViewController@register");
 
+    Route::post("/del", "ActionController@del");
     Route::post("/save", "ActionController@save");
     Route::post('/login', 'ActionController@login');
     Route::get("/logout", "ActionController@logout");

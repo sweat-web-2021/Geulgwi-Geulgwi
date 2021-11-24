@@ -28,25 +28,30 @@
     <section>
         <div class="container write">
             <form action="/editok" method="post">
-                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="hidden" name="id" value="<?= $list->id ?>">
                 <div class="top my-4">
                     <div style="width: 73%;">
-                        <input type="text" value="<?= $list->title ?>" name="title" id="title" class="form-control" placeholder="제목을 입력해주세요" required>
+                        <input type="text" name="title" id="title" class="form-control" value="<?= $list->title ?>" placeholder="제목을 입력해주세요" required>
                     </div>
 
                     <div style="width: 25%;">
                         <select name="cates" id="cates" class="form-select">
-                            <option value="null" selected>카테고리를 선택해주세요.</option>
-                            <option value="cate2">1</option>
-                            <option value="cate3">2</option>
-                            <option value="cate4">3</option>
-                            <option value="cate5">4</option>
+                            <?php
+                                $cates = array("책", "시", "음악", "영화");
+                                foreach($cates as $item) {
+                                    if($item == $list->cate) {
+                                        echo "<option value='{$item}' selected>{$item}</option>";
+                                    } else {
+                                        echo "<option value='{$item}'>{$item}</option>";
+                                    }
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
 
                 <div class='mb-3'>
-                    <input type="text" value="<?= $list->copy ?>" name="copy" id="copy" class="form-control" placeholder="저작권 출처를 밝혀야 합니다 (책 제목, 사이트 주소 등)" required>
+                    <input type="text" name="copy" id="copy" class="form-control" value="<?= $list->copy ?>" placeholder="저작권 출처를 밝혀야 합니다 (책 제목, 사이트 주소 등)" required>
                 </div>
 
                 <div class='mb-3'>

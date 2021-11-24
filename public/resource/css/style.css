@@ -587,9 +587,20 @@ header ul li:not(li:nth-child(5)) {
     border-bottom: 1px solid #000;
 }
 
+#list .list .item {
+    padding: 40px 100px;
+    margin: 0 300px;
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+#list .list .item a {color: #000;}
+
+#list .list .item:nth-child(1) {border-top: 1px solid #000;}
+
 #list .list .pan {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 4px 12px;
     border-radius: 10px;
     min-width: 80px;
     text-align: center;
@@ -598,13 +609,8 @@ header ul li:not(li:nth-child(5)) {
     background: #003964;
 }
 
-#list table {
-    text-align: center;
-}
-
-#list .btns {
+#list .jab {
     display: flex;
-    justify-content: end;
 }
 
 /* 게시물 */

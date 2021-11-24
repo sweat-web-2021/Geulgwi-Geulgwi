@@ -5,7 +5,7 @@
         exit;
     }
 
-    function view1($page, $list = [], $id) {
+    function view1($page, $id, $list = []) {
         require VIEW."/header.php";
         require VIEW."/$page.php";
         exit;
@@ -17,4 +17,11 @@
         echo "location.href = '{$url}';";
         echo "</script>";
         exit;
+    }
+
+    function back($msg) {
+        echo "<script>";
+        echo "alert('$msg');";
+        echo "history.back();";
+        echo "</script>";
     }

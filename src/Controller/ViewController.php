@@ -32,10 +32,7 @@
         }
 
         static function list() {
-            //여기 해야됨
-            $list = DB::fetchAll("SELECT DISTINCT l.* FROM
-                                  list AS l
-                                  LEFT JOIN review AS r ON l.id = r.code");
+            $list = DB::fetchAll("SELECT * FROM list");
             view('list', $list);
         }
 
@@ -61,6 +58,6 @@
 
             $id = $_GET['id'];
             $list = DB::fetch("SELECT * FROM list WHERE id = ?", [$id]);
-            view1('edit', $list, $id);
+            view('edit', $list);
         }
     }

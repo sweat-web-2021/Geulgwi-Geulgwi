@@ -77,7 +77,7 @@
                 $_SESSION['user'] = $user;
                 go("로그인 되셨습니다.", "/");
             } else {
-                go("아이디 또는 비밀번호가 일치하지 않습니다.", '/login');
+                back("아이디 또는 비밀번호가 일치하지 않습니다.");
             }
 
             exit;
@@ -117,6 +117,7 @@
             $code = $_POST['code'];
 
             DB::query("INSERT INTO review (user_id, text, code) VALUES (?, ?, ?)", [$_SESSION['user']->id, $text, $code]);
+            DB::query("UPDATE list SET recnt = recnt + 1 WHERE id = ?", [$code]);
             $list = DB::fetchAll("SELECT * FROM
                                   (SELECT * FROM review WHERE code = ?) AS r
                                   LEFT JOIN user AS u ON r.user_id = u.id", [$code]);
@@ -126,12 +127,19 @@
 
         static function editok() {
             $id = $_POST['id'];
+            $cate = $_POST['cates'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             $copy = $_POST['copy'];
 
-            DB::query("UPDATE list SET title = ?, content = ?, copy = ? WHERE id = ?", [$title, $content, $copy, $id]);
+            DB::query("UPDATE list SET title = ?, content = ?, copy = ?, cate = ? WHERE id = ?", [$title, $content, $copy, $cate, $id]);
 
             go("수정 완료", '/view?id='.$id);
+        }
+
+        static function del() {
+            $code = $_POST['code'];
+
+            DB::query("DELETE FROM list WHERE id = ?", [$code]);
         }
     }

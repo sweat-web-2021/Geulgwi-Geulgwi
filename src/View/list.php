@@ -34,70 +34,41 @@
                 <div class="">영화</div>
             </div>
 
-            <div class="list">
-                <?php foreach($list as $item) : ?>
-                    <div class="item">
-                        <div class="info">
-                            <?= str_replace("-", ".", explode(" ", $item->writedate)[0]) ?> | <?= $item->viewcnt ?> 읽음
-                        </div>
-
-                        <div class="cateinfo my-2">
-                            <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
-                        </div>
-                        <h2><?= $item->title ?></h2>
-                        <p>
-                            <?= $item->content ?>
-                        </p>
-
-                        <div class="jab">
-                            <div class="good">
-                                <i style="font-size:24px;" class="far fa-star"></i>
-                                <?= $item->sug ?>
-                            </div>
-                            <div class="coment">
-                                <i style="font-size:24px;" class="far fa-comment-dots"></i>
-                                <?= $item->cnt ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-
-            <table class="table my-5">
-                <thead>
-                    <tr>
-                        <th style="width:10%;">번호</th>
-                        <th style="width:50%;">제목</th>
-                        <th style="width:10%;">글쓴이</th>
-                        <th style="width:10%;">작성일</th>
-                        <th style="width:10%;">조회</th>
-                        <th style="width:10%;">추천</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($list as $item) : ?>
-                        <tr>
-                            <td><?= $item->id ?></td>
-                            <td><a href="/view?id=<?= $item->id ?>"><?= $item->title ?></a></td>
-                            <td><?= $item->writer ?></td>
-                            <td><?= explode(" ", $item->writedate)[0] ?></td>
-                            <td><?= $item->viewcnt ?></td>
-                            <td><?= $item->sug ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
             <?php if(isset($_SESSION['user'])) : ?>
                 <div class="btns">
                     <a class="btn btn-primary" href="/write">글쓰기</a>
                 </div>
             <?php endif; ?>
+
+            <div class="list mb-5">
+                <?php foreach($list as $item) : ?>
+                    <div class="item">
+                        <a href="/view?id=<?= $item->id ?>">
+                            <div class="info">
+                                <?= str_replace("-", ".", explode(" ", $item->writedate)[0]) ?> | <?= $item->viewcnt ?> 읽음
+                            </div>
+    
+                            <div class="cateinfo my-2">
+                                <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                            </div>
+                            <h2><?= $item->title ?></h2>
+                            <p>
+                                <?= $item->content ?>
+                            </p>
+    
+                            <div class="jab mt-4">
+                                <div class="good">
+                                    <i style="font-size:24px;" class="far fa-star"></i>
+                                    <?= $item->sug ?>
+                                </div>
+                                <div class="coment" style="margin-left:10px;">
+                                    <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                    <?= $item->recnt ?>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
-
-    <?php 
-        echo "<pre>";
-        var_dump($list);
-        echo "</pre>";
-    ?>
