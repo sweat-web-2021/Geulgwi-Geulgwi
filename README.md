@@ -4,8 +4,9 @@
 ![PHP](https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=PHP&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=MySQL&logoColor=white)
 ![Apache](https://img.shields.io/badge/Apache-%23D2212B.svg?style=for-the-badge&logo=Apache&logoColor=white)
-[![image](https://user-images.githubusercontent.com/43088187/139226261-49531578-6dd0-4fe5-bbbb-f723688002bd.png)](https://github.com/sweat-web-2021/Geulgwi-Geulgwi)
 ![Adobe XD](https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6)
+[![image](https://user-images.githubusercontent.com/43088187/139226261-49531578-6dd0-4fe5-bbbb-f723688002bd.png)](https://github.com/sweat-web-2021/Geulgwi-Geulgwi)
+
 
 # Geulgwi-Geulgwi
 세상의 모든 글귀가 다 모였다! - 글귀 글귀
