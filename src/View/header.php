@@ -11,3 +11,5 @@
     <link rel="stylesheet" href="./resource/css/style.css">
 </head>
 <body>
+    <script src="./resource/js/mobile_checker.js"></script>
+    <script src="./resource/js/channel.js"></script>
