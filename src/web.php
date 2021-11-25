@@ -7,6 +7,7 @@
     Route::get("/edit", "ViewController@edit");
     Route::get("/login", "ViewController@login");
     Route::get("/write", "ViewController@write");
+    Route::get("/search", "ViewController@search");
     Route::get("/mypage", "ViewController@mypage");
     Route::get("/register", "ViewController@register");
 
@@ -21,5 +22,6 @@
     Route::post('/writeok', 'ActionController@writeok');
     Route::post('/chklike', 'ActionController@chklike');
     Route::post('/register', 'ActionController@register');
+    Route::post('/searchreq', "ActionController@searchreq");
 
     Route::start();

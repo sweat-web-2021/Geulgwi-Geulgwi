@@ -62,9 +62,11 @@ header ul li:not(li:nth-child(5)) {
     height: 100%;
 }
 
-.image-1 { background-color: #faa; }
-.image-2 { background-color: #afa; }
-.image-3 { background-color: #aaf; }
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .labels {
     width: 100%;
@@ -85,6 +87,7 @@ header ul li:not(li:nth-child(5)) {
     position: relative;
 
     border: 3px solid #fff;
+    border-radius: 50%;
 
     margin: 0 4px;
 }
@@ -436,7 +439,7 @@ header ul li:not(li:nth-child(5)) {
     border-radius: 0 50px 50px 0;
 }
 
-.search i {
+.search button {
     font-size: 18px;
     position: absolute;
     right: 9%;
@@ -444,18 +447,33 @@ header ul li:not(li:nth-child(5)) {
 
 /* 인기게시물 */
 
-.bestWeek {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.bestWeek .box {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
 }
 
-.bestWeek h4 {align-self: flex-start;}
+.bestWeek .item {
+    padding: 40px 100px;
+    border-bottom: 1px solid #000;
+    color: #000;
+}
 
-.bestWeek .box {
-    width: 100%;
+.bestWeek .item a {color: #000;}
+
+.bestWeek .pan {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+
+    color: #fff;
+    background: #003964;
+}
+
+.bestWeek .jab {
     display: flex;
-    justify-content: space-between;
 }
 
 /* 로그인 */
@@ -580,6 +598,7 @@ header ul li:not(li:nth-child(5)) {
     font-size: 20px;
     color: #aaa;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #list .cate div.act {
@@ -662,7 +681,8 @@ header ul li:not(li:nth-child(5)) {
 }
 
 #view .content .mid {
-    height: 750px;
+    min-height: 750px;
+    padding: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -675,14 +695,15 @@ header ul li:not(li:nth-child(5)) {
 }
 
 #view .content .mid .main_content {
-    font-size: 50px;
+    font-size: 25pt;
     color: #000;
     font-style: italic;
+    word-break: break-all;
 }
 
 #view .content .mid .people {
     color: #999;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 #view .content .bot {
@@ -820,4 +841,35 @@ header ul li:not(li:nth-child(5)) {
 .mypage input[id='like']:checked ~ .like,
 .mypage input[id='save']:checked ~ .save {
     display: grid;
+}
+
+/* 검색 */
+
+#search .box {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+#search .item {
+    padding: 40px 100px;
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+#search .item a {color: #000;}
+
+#search .pan {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+
+    color: #fff;
+    background: #003964;
+}
+
+#search .jab {
+    display: flex;
 }

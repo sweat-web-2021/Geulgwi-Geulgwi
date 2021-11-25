@@ -142,4 +142,30 @@
 
             DB::query("DELETE FROM list WHERE id = ?", [$code]);
         }
+
+        static function searchreq() {
+            $type = $_POST['type'];
+            $key = $_POST['keyword'] == "전체" ? '' : $_POST['keyword'] ;
+            $list;
+
+            switch ($type) {
+                case '제목':
+                    $list = DB::fetchAll("SELECT * FROM list WHERE title LIKE '%".$key."%'");
+                    break;
+
+                case '닉네임':
+                    $list = DB::fetchAll("SELECT * FROM list WHERE writer LIKE '%".$key."%'");
+                    break;
+                
+                case '카테고리':
+                    $list = DB::fetchAll("SELECT * FROM list WHERE cate LIKE '%".$key."%'");
+                    break;
+
+                case '태그':
+                    # 해야 됨
+                    break;
+            }
+
+            echo json_encode($list);
+        }
     }

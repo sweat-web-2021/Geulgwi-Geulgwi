@@ -5,12 +5,6 @@
         exit;
     }
 
-    function view1($page, $id, $list = []) {
-        require VIEW."/header.php";
-        require VIEW."/$page.php";
-        exit;
-    }
-
     function go($msg, $url) {
         echo "<script>";
         echo "alert('$msg');";

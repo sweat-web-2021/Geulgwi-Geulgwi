@@ -25,10 +25,8 @@
                 <?php endif; ?>
             </div>
             <div class="mid">
-                <span class="collon">“</span>
                 <p class="main_content"><b><?= $list->content ?></b></p>
-                <span class="people"><?= $list->copy ?></span>
-                <span class="collon">”</span>
+                <span class="people">-<?= $list->copy ?>-</span>
             </div>
             <div class="bot">
                 <div class="btns">

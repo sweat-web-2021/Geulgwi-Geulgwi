@@ -6,11 +6,10 @@
 
             <nav>
                 <ul style="margin: 0; padding: 0;">
-                    <li><a href="#">책</a></li>
-                    <li><a href="#">영화</a></li>
-                    <li><a href="#">시</a></li>
-                    <li><a href="#">음악</a></li>
-                    <li><a href="#">영어</a></li>
+                    <li><a href="/list">목록</a></li>
+                    <li><a href="/write">글 쓰기</a></li>
+                    <li><a href="/search">검색</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
                 </ul>
             </nav>
 
@@ -50,9 +49,15 @@
 
             <div id="target-slide" class="slide">
                 <div class="inner">
-                    <div class="image image-1"></div>
-                    <div class="image image-2"></div>
-                    <div class="image image-3"></div>
+                    <div class="image image-1">
+                        <img src="./resource/img/banner1.jpg" alt="">
+                    </div>
+                    <div class="image image-2">
+                        <img src="./resource/img/banner2.png" alt="">
+                    </div>
+                    <div class="image image-3">
+                        <img src="./resource/img/banner3.png" alt="">
+                    </div>
                 </div>
                 <div class="labels">
                     <div class="label">
@@ -92,40 +97,40 @@
         </div>
 
         <div class="container">
-            <div class="search mb-5">
-                <select name="category" id="category">
-                    <option value="null" selected>카테고리</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                    <option value="#">카테고리들</option>
-                </select>
-
-                <input type="text" name="searchBar" id="searchBar" class="form-control" placeholder="제목, 닉네임, 카테고리">
-
-                <i class="fas fa-search"></i>
-            </div>
-            
             <div class="bestWeek mb-5">
-                <h4>이번주 인기 게시물</h4>
+                <h3>이번주 인기 게시물</h3>
                 <div class="box">
-                    <div class="item">
-                        <img src="./resource/img/download.png" alt="게시물 이미지" title="게시물 이미지">
-                    </div>
-                    <div class="item">
-                        <img src="./resource/img/download.png" alt="게시물 이미지" title="게시물 이미지">
-                    </div>
-                    <div class="item">
-                        <img src="./resource/img/download.png" alt="게시물 이미지" title="게시물 이미지">
-                    </div>
-                    <div class="item">
-                        <img src="./resource/img/download.png" alt="게시물 이미지" title="게시물 이미지">
-                    </div>
+                    <?php foreach($list as $item) : ?>
+                        <div class="item">
+                            <a href="/view?id=<?= $item->id ?>">
+                                <div class="info">
+                                    <?= explode(" ", $item->writedate)[0] ?> | <?= $item->viewcnt ?> 읽음
+                                </div>
+        
+                                <div class="cateinfo my-2">
+                                    <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                                </div>
+                                <h2><?= $item->title ?></h2>
+                                <p style="word-break:break-all;">
+                                    <?php
+                                        echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                    ?>
+                                </p>
+        
+                                <div class="jab mt-4">
+                                    <div class="good">
+                                        <i style="font-size:24px;" class="far fa-star"></i>
+                                        <?= $item->sug ?>
+                                    </div>
+                                    <div class="coment" style="margin-left:10px;">
+                                        <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                        <?= $item->recnt ?>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <a href="/list" class="btn btn-primary">더보기</a>
             </div>
         </div>
     </section>

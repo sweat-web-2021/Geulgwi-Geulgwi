@@ -50,7 +50,8 @@
         }
 
         static function main() {
-            view('main');
+            $list = DB::fetchAll("SELECT * FROM list ORDER BY sug DESC LIMIT 6");
+            view('main', $list);
         }
 
         static function edit() {
@@ -59,5 +60,9 @@
             $id = $_GET['id'];
             $list = DB::fetch("SELECT * FROM list WHERE id = ?", [$id]);
             view('edit', $list);
+        }
+
+        static function search() {
+            view('search');
         }
     }

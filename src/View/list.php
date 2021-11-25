@@ -6,11 +6,10 @@
 
             <nav>
                 <ul style="margin: 0; padding: 0;">
-                    <li><a href="#">책</a></li>
-                    <li><a href="#">영화</a></li>
-                    <li><a href="#">시</a></li>
-                    <li><a href="#">음악</a></li>
-                    <li><a href="#">영어</a></li>
+                    <li><a href="/list">목록</a></li>
+                    <li><a href="/write">글 쓰기</a></li>
+                    <li><a href="/search">검색</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
                 </ul>
             </nav>
 
@@ -28,10 +27,11 @@
     <section>
         <div class="container" id="list">
             <div class="cate my-5">
-                <div class="act">책</div>
-                <div class="">시</div>
-                <div class="">음악</div>
-                <div class="">영화</div>
+                <div class="cates act">전체</div>
+                <div class="cates">책</div>
+                <div class="cates">시</div>
+                <div class="cates">음악</div>
+                <div class="cates">영화</div>
             </div>
 
             <?php if(isset($_SESSION['user'])) : ?>
@@ -43,17 +43,19 @@
             <div class="list mb-5">
                 <?php foreach($list as $item) : ?>
                     <div class="item">
-                        <a href="/view?id=<?= $item->id ?>">
+                        <a href="/view?id=<?= $item->id ?>" target="_blank">
                             <div class="info">
-                                <?= str_replace("-", ".", explode(" ", $item->writedate)[0]) ?> | <?= $item->viewcnt ?> 읽음
+                                <?= explode(" ", $item->writedate)[0] ?> | <?= $item->viewcnt ?> 읽음
                             </div>
     
                             <div class="cateinfo my-2">
                                 <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
                             </div>
                             <h2><?= $item->title ?></h2>
-                            <p>
-                                <?= $item->content ?>
+                            <p style="word-break:break-all;">
+                                <?php
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                ?>
                             </p>
     
                             <div class="jab mt-4">
@@ -72,3 +74,4 @@
             </div>
         </div>
     </section>
+    <script src="./resource/js/list.js"></script>

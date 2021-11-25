@@ -6,11 +6,10 @@
 
             <nav>
                 <ul style="margin: 0; padding: 0;">
-                    <li><a href="#">책</a></li>
-                    <li><a href="#">영화</a></li>
-                    <li><a href="#">시</a></li>
-                    <li><a href="#">음악</a></li>
-                    <li><a href="#">영어</a></li>
+                    <li><a href="/list">목록</a></li>
+                    <li><a href="/write">글 쓰기</a></li>
+                    <li><a href="/search">검색</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
                 </ul>
             </nav>
 
