@@ -50,13 +50,13 @@
             <div id="target-slide" class="slide">
                 <div class="inner">
                     <div class="image image-1">
-                        <img src="./resource/img/banner1.jpg" alt="">
+                        <img src="./resource/img/banner1.png" alt="">
                     </div>
                     <div class="image image-2">
                         <img src="./resource/img/banner2.png" alt="">
                     </div>
                     <div class="image image-3">
-                        <img src="./resource/img/banner3.png" alt="">
+                        <a href="https://softcon.ajou.ac.kr/"><img src="./resource/img/banner3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="labels">

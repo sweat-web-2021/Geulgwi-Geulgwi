@@ -634,7 +634,7 @@ header ul li:not(li:nth-child(5)) {
 
 /* 게시물 */
 
-#view {width: 1920px;}
+#view {width: 100vw;}
 
 #view .header .logo {
     margin: 0 auto;
