@@ -3,6 +3,7 @@
             <div class="box">
                 <div class="logo mb-3">
                     <h2>회원가입</h2>
+                    타 사이트에서 이용 중인 아이디나 비밀번호를 <b>절대</b> 사용하지 마세요.
                 </div>
                 <form action='/register' method="post" class="mid" enctype="multipart/form-data">
                     <div class="left">
