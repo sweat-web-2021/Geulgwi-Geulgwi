@@ -65,4 +65,8 @@
         static function search() {
             view('search');
         }
+
+        static function profileedit() {
+            view('profileedit');
+        }
     }

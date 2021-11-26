@@ -29,7 +29,10 @@ list.forEach(item => {
                                     <div class="cateinfo my-2">
                                         <span class="pan">${item.cate}</span> ${item.writer}
                                     </div>
-                                    <h2>${item.title}</h2>
+                                    <div style="display:flex; align-items:center;">
+                                        <h2 style="margin-right:10px">${item.title}</h2>
+                                        ${tag(item.tag)}
+                                    </div>
                                     <p style="word-break:break-all;">
                                         ${item.content}
                                     </p>
@@ -51,4 +54,18 @@ list.forEach(item => {
             }
         })
     })
+})
+
+function tag(arr) {
+    let arr1 = arr.replace(/ /gi, "").split(',')
+    let str = ''
+    arr1.forEach(item => {
+        str+= "#"+ item +" ";
+    })
+
+    return str;
+}
+
+document.querySelector('.upbtn').addEventListener('click', e => {
+    window.scrollTo({top:0, behavior:'smooth'});
 })

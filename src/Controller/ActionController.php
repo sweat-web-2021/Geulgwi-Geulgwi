@@ -8,8 +8,9 @@
             $writer = $_SESSION['user']->id;
             $copy = $_POST['copy'];
             $cate = $_POST['cates'];
+            $tag = isset($_POST['tag']) ? $_POST['tag'] : '';
 
-            DB::query("INSERT INTO list (title, content, copy, cate, writer) VALUES (?, ?, ?, ?, ?)", [$title, $content, $copy, $cate, $writer]);
+            DB::query("INSERT INTO list (title, content, copy, cate, tag, writer) VALUES (?, ?, ?, ?, ?, ?)", [$title, $content, $copy, $cate, $tag, $writer]);
             go("작성완료", '/list');
         }
 
@@ -131,8 +132,9 @@
             $title = $_POST['title'];
             $content = $_POST['content'];
             $copy = $_POST['copy'];
+            $tag = isset($_POST['tag']) ? $_POST['tag'] : '';
 
-            DB::query("UPDATE list SET title = ?, content = ?, copy = ?, cate = ? WHERE id = ?", [$title, $content, $copy, $cate, $id]);
+            DB::query("UPDATE list SET title = ?, content = ?, copy = ?, cate = ?, tag = ? WHERE id = ?", [$title, $content, $copy, $cate, $tag, $id]);
 
             go("수정 완료", '/view?id='.$id);
         }
@@ -162,7 +164,7 @@
                     break;
 
                 case '태그':
-                    # 해야 됨
+                    $list = DB::fetchAll("SELECT * FROM list WHERE tag LIKE '%".$key."%'");
                     break;
             }
 

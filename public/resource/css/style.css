@@ -632,6 +632,22 @@ header ul li:not(li:nth-child(5)) {
     display: flex;
 }
 
+.upbtn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #003964;
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    cursor: pointer;
+}
+
 /* 게시물 */
 
 #view {width: 100vw;}
@@ -740,11 +756,19 @@ header ul li:not(li:nth-child(5)) {
 }
 
 #view .review .item {
+    display: flex;
+    align-items: center;
     margin-bottom: 24px;
+}
+
+#view .review .item .wrap {
+    display: flex;
+    flex-direction: column;
 }
 
 #view .review .item img {
     width: 50px;
+    margin-right: 10px;
     border-radius: 50%;
 }
 
@@ -793,9 +817,9 @@ header ul li:not(li:nth-child(5)) {
     justify-content: space-between;
 }
 
-.mypage .user_info .box img {
-    border-radius: 50%;
-    height: 100%;
+.mypage .user_info .box .image {
+    width: 170px;
+    height: 170px;
 }
 
 .mypage .user_info .box .text {
@@ -807,7 +831,9 @@ header ul li:not(li:nth-child(5)) {
 
 .mypage .user_info .box .edit-btn {
     border: 1px solid #aaa;
+    background-color: #efefef;
     padding: 3px 2px;
+    color: #000;
 }
 
 .mypage .container {
@@ -816,12 +842,33 @@ header ul li:not(li:nth-child(5)) {
 
 .mypage .container > div {
     display: none;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.mypage .container > div .card {
-    margin: 0 auto;
+
+.mypage .container > div .item {
+    padding: 40px 100px;
+    border-bottom: 1px solid #000;
+    color: #000;
+    text-align: left;
+}
+
+.mypage .container > div .item a {color: #000;}
+
+.mypage .container > div .pan {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+
+    color: #fff;
+    background: #003964;
+}
+
+.mypage .container > div .jab {
+    display: flex;
 }
 
 .mypage label {

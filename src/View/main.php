@@ -110,7 +110,15 @@
                                 <div class="cateinfo my-2">
                                     <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
                                 </div>
-                                <h2><?= $item->title ?></h2>
+                                <div style="display:flex; align-items:center;">
+                                <h2 style="margin-right:10px"><?= $item->title ?></h2>
+                                    <?php
+                                        $arr = explode(",", preg_replace("/\s+/","",$item->tag));
+                                        foreach($arr as $a) {
+                                            echo "#".$a." ";
+                                        }
+                                    ?>
+                                </div>
                                 <p style="word-break:break-all;">
                                     <?php
                                         echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;

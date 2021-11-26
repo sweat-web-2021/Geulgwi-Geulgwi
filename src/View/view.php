@@ -56,7 +56,11 @@
                 <?php foreach($list1 as $item) : ?>
                     <div class="item">
                         <img src="./profile/<?= $item->profile ?>" alt="">
-                        <span><?= $item->text ?></span>
+                        
+                        <div class="wrap">
+                            <span style="font-weight:bold;"><?= $item->user_id ?></span>
+                            <span style="word-break:break-all;"><?= $item->text ?></span>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -71,3 +75,5 @@
         </div>
     </div>
     <script src="./resource/js/view.js"></script>
+</body>
+</html>

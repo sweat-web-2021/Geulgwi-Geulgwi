@@ -10,6 +10,7 @@
     Route::get("/search", "ViewController@search");
     Route::get("/mypage", "ViewController@mypage");
     Route::get("/register", "ViewController@register");
+    Route::get('/profileedit', "ViewController@profileedit");
 
     Route::post("/del", "ActionController@del");
     Route::post("/save", "ActionController@save");

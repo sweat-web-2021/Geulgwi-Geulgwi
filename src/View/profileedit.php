@@ -24,33 +24,10 @@
             </div>
         </div>
     </header>
-    <section id='search'>
-        <div class='container my-5'>
-            <h3>검색</h3>
-            <div class="search mb-5">
-                <select name="category" id="category">
-                    <option value="제목" selected>제목</option>
-                    <option value="닉네임">닉네임</option>
-                    <option value="카테고리">카테고리</option>
-                    <option value="태그">태그</option>
-                </select>
-    
-                <input type="text" name="searchBar" id="searchBar" class="form-control" placeholder="제목, 닉네임, 카테고리, 태그">
-    
-                <button class='btn search-btn'><i class="fas fa-search"></i></button>
-            </div>
-        
-            <div class="list">
-                <h3>검색결과</h3>
-
-                <div class="box">
-                    
-                </div>
-            </div>
+    <section>
+        <div class="container">
+            
         </div>
-
-        <div class="upbtn"><i class="fas fa-arrow-up"></i></div>
     </section>
-    <script src="./resource/js/search.js"></script>
 </body>
 </html>

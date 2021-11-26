@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="tag" id="tag" placeholder="태그를 입력해주세요. 태그는 띄어쓰기로 구분됩니다.">
+                    <input class="form-control" type="text" name="tag" id="tag" placeholder="태그를 입력해주세요. 태그는 쉼표로 구분됩니다.">
                 </div>
 
                 <button class="btn btn-danger cancle">취소</button>
@@ -61,3 +61,5 @@
         </div>
     </section>
     <script src="./resource/js/write.js"></script>
+</body>
+</html>

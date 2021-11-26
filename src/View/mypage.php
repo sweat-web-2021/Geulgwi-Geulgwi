@@ -28,7 +28,7 @@
         <div class="user_info">
             <div class="box">
                 <div class="image" style="margin-right:30px">
-                    <img src="./profile/<?= $_SESSION['user']->profile ?>" alt="user_profile">
+                    <img style="border-radius:50%;" src="./profile/<?= $_SESSION['user']->profile ?>" alt="user_profile">
                 </div>
                 <div class="text">
                     <div style="font-size:30pt" class="user_name"><?= $_SESSION['user']->id ?></div>
@@ -41,7 +41,7 @@
                         ?>
                     </div>
                     <div class="edit">
-                        <button class="edit-btn">프로필 편집</button>
+                        <a href="/profileedit" class="edit-btn">프로필 편집</a>
                         <i style="font-size:20px; margin-left:10px;" class="fas fa-cog"></i>
                     </div>
                 </div>
@@ -58,41 +58,127 @@
 
             <div class="post">
                 <?php foreach($list as $item) : ?>
-                    <div class="card" style="width: 18rem;">
-                        <img src="./profile/profile.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $item->title ?></h5>
-                            <p class="card-text"><?= $item->content ?></p>
-                            <a href="/view?id=<?= $item->id ?>" class="btn btn-primary">게시글 보기</a>
-                        </div>
+                    <div class="item">
+                        <a href="/view?id=<?= $item->id ?>" target="_blank">
+                            <div class="info">
+                                <?= explode(" ", $item->writedate)[0] ?> | <?= $item->viewcnt ?> 읽음
+                            </div>
+    
+                            <div class="cateinfo my-2">
+                                <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                            </div>
+                            <div style="display:flex; align-items:center;">
+                                <h2 style="margin-right:10px"><?= $item->title ?></h2>
+                                <?php
+                                    $arr = explode(",", preg_replace("/\s+/","",$item->tag));
+                                    foreach($arr as $a) {
+                                        echo "#".$a." ";
+                                    }
+                                ?>
+                            </div>
+                            <p style="word-break:break-all;">
+                                <?php
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                ?>
+                            </p>
+    
+                            <div class="jab mt-4">
+                                <div class="good">
+                                    <i style="font-size:24px;" class="far fa-star"></i>
+                                    <?= $item->sug ?>
+                                </div>
+                                <div class="coment" style="margin-left:10px;">
+                                    <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                    <?= $item->recnt ?>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>
 
             <div class="like">
                 <?php foreach($list1 as $item) : ?>
-                    <div class="card" style="width: 18rem;">
-                        <img src="./profile/profile.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $item->title ?></h5>
-                            <p class="card-text"><?= $item->content ?></p>
-                            <a href="/view?id=<?= $item->id ?>" class="btn btn-primary">게시글 보기</a>
-                        </div>
+                    <div class="item">
+                        <a href="/view?id=<?= $item->id ?>" target="_blank">
+                            <div class="info">
+                                <?= explode(" ", $item->writedate)[0] ?> | <?= $item->viewcnt ?> 읽음
+                            </div>
+    
+                            <div class="cateinfo my-2">
+                                <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                            </div>
+                            <div style="display:flex; align-items:center;">
+                                <h2 style="margin-right:10px"><?= $item->title ?></h2>
+                                <?php
+                                    $arr = explode(",", preg_replace("/\s+/","",$item->tag));
+                                    foreach($arr as $a) {
+                                        echo "#".$a." ";
+                                    }
+                                ?>
+                            </div>
+                            <p style="word-break:break-all;">
+                                <?php
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                ?>
+                            </p>
+    
+                            <div class="jab mt-4">
+                                <div class="good">
+                                    <i style="font-size:24px;" class="far fa-star"></i>
+                                    <?= $item->sug ?>
+                                </div>
+                                <div class="coment" style="margin-left:10px;">
+                                    <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                    <?= $item->recnt ?>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>
 
             <div class="save">
                 <?php foreach($list2 as $item) : ?>
-                    <div class="card" style="width: 18rem;">
-                        <img src="./profile/profile.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $item->title ?></h5>
-                            <p class="card-text"><?= $item->content ?></p>
-                            <a href="/view?id=<?= $item->id ?>" class="btn btn-primary">게시글 보기</a>
-                        </div>
+                    <div class="item">
+                        <a href="/view?id=<?= $item->id ?>" target="_blank">
+                            <div class="info">
+                                <?= explode(" ", $item->writedate)[0] ?> | <?= $item->viewcnt ?> 읽음
+                            </div>
+    
+                            <div class="cateinfo my-2">
+                                <span class="pan"><?= $item->cate ?></span> <?= $item->writer ?>
+                            </div>
+                            <div style="display:flex; align-items:center;">
+                                <h2 style="margin-right:10px"><?= $item->title ?></h2>
+                                <?php
+                                    $arr = explode(",", preg_replace("/\s+/","",$item->tag));
+                                    foreach($arr as $a) {
+                                        echo "#".$a." ";
+                                    }
+                                ?>
+                            </div>
+                            <p style="word-break:break-all;">
+                                <?php
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                ?>
+                            </p>
+    
+                            <div class="jab mt-4">
+                                <div class="good">
+                                    <i style="font-size:24px;" class="far fa-star"></i>
+                                    <?= $item->sug ?>
+                                </div>
+                                <div class="coment" style="margin-left:10px;">
+                                    <i style="font-size:24px;" class="far fa-comment-dots"></i>
+                                    <?= $item->recnt ?>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
+</body>
+</html>
