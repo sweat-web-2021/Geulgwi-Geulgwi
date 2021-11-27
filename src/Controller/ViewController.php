@@ -32,7 +32,7 @@
         }
 
         static function list() {
-            $list = DB::fetchAll("SELECT * FROM list");
+            $list = DB::fetchAll("SELECT * FROM list ORDER BY id DESC LIMIT 0, 10");
             view('list', $list);
         }
 
@@ -67,6 +67,7 @@
         }
 
         static function profileedit() {
+            if(!isset($_SESSION['user'])) go("로그인 해주세요", '/login');
             view('profileedit');
         }
     }

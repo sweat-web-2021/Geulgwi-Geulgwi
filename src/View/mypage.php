@@ -31,15 +31,7 @@
                     <img style="border-radius:50%;" src="./profile/<?= $_SESSION['user']->profile ?>" alt="user_profile">
                 </div>
                 <div class="text">
-                    <div style="font-size:30pt" class="user_name"><?= $_SESSION['user']->id ?></div>
-                    <div class="mb-3">
-                        <?php
-                            $cates = explode(',', $_SESSION['user']->cate);
-                            foreach($cates as $item) {
-                                echo '<span style="margin-right:10px;">'.$item.'</span>';
-                            }
-                        ?>
-                    </div>
+                    <div style="font-size:30pt" class="user_name mb-3"><?= $_SESSION['user']->id ?></div>
                     <div class="edit">
                         <a href="/profileedit" class="edit-btn">프로필 편집</a>
                         <i style="font-size:20px; margin-left:10px;" class="fas fa-cog"></i>

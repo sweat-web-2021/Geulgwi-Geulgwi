@@ -18,7 +18,6 @@
             $id = $_POST['id'];
             $pass = $_POST['pass'];
             $passchk = $_POST['passchk'];
-            $cate = isset($_POST['cate']) ? join(',', $_POST['cate']) : null;
 
             $img = isset($_FILES['profile']) ? $_FILES['profile']['tmp_name'] : false;
 
@@ -54,7 +53,7 @@
 
                         move_uploaded_file($img, $resFile);
                         
-                        DB::query("INSERT INTO user (id, pass, cate, profile) VALUES (?, ?, ?, ?)", [$id, $pass, $cate, $imgname]);
+                        DB::query("INSERT INTO user (id, pass, profile) VALUES (?, ?, ?)", [$id, $pass, $imgname]);
                         go("회원가입 되셨습니다", '/');
                     } else {
                         go("이미지 파일이 아닙니다.", "/");
@@ -62,7 +61,7 @@
                     }
                 }
             } else {
-                DB::query("INSERT INTO user (id, pass, cate) VALUES (?, ?, ?)", [$id, $pass, $cate]);
+                DB::query("INSERT INTO user (id, pass) VALUES (?, ?)", [$id, $pass]);
                 go("회원가입 되셨습니다", '/');
             }
             exit;
@@ -147,27 +146,81 @@
 
         static function searchreq() {
             $type = $_POST['type'];
-            $key = $_POST['keyword'] == "전체" ? '' : $_POST['keyword'] ;
+            $key = $_POST['keyword'] == "전체" ? '' : $_POST['keyword'];
+            $start = $_POST['start'];
             $list;
 
             switch ($type) {
                 case '제목':
-                    $list = DB::fetchAll("SELECT * FROM list WHERE title LIKE '%".$key."%'");
+                    $list = DB::fetchAll("SELECT * FROM list WHERE title LIKE '%".$key."%' ORDER BY id DESC LIMIT ".$start.", 10");
                     break;
 
                 case '닉네임':
-                    $list = DB::fetchAll("SELECT * FROM list WHERE writer LIKE '%".$key."%'");
+                    $list = DB::fetchAll("SELECT * FROM list WHERE writer LIKE '%".$key."%' ORDER BY id DESC LIMIT ".$start.", 10");
                     break;
                 
                 case '카테고리':
-                    $list = DB::fetchAll("SELECT * FROM list WHERE cate LIKE '%".$key."%'");
+                    $list = DB::fetchAll("SELECT * FROM list WHERE cate LIKE '%".$key."%' ORDER BY id DESC LIMIT ".$start.", 10");
                     break;
 
                 case '태그':
-                    $list = DB::fetchAll("SELECT * FROM list WHERE tag LIKE '%".$key."%'");
+                    $list = DB::fetchAll("SELECT * FROM list WHERE tag LIKE '%".$key."%' ORDER BY id DESC LIMIT ".$start.", 10");
                     break;
             }
 
             echo json_encode($list);
+        }
+
+        static function profileup() {
+            $pass = strlen($_POST['pass']) > 0 ? $_POST['pass'] : $_SESSION['user']->pass;
+            $passchk = strlen($_POST['passchk']) > 0 && strlen($_POST['pass']) > 0 ? $_POST['passchk'] : $_SESSION['user']->pass;
+
+            $img = isset($_FILES['profile']) ? $_FILES['profile']['tmp_name'] : false;
+
+            $regPass = '/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/';
+
+            $idchk = DB::fetch("SELECT * FROM user WHERE id = ?", [$id]);
+
+            if ($pass != $passchk || !preg_match($regPass, $pass)) {
+                go("입력하신 정보를 확인해주세요", '/mypage');
+            } elseif($img) {
+                $fileTypeExt = explode("/", $_FILES['profile']['type']);
+                $fileType = $fileTypeExt[0];
+                $fileExt = $fileTypeExt[1];
+                $extStatus = false;
+
+                switch($fileExt) {
+                    case 'jpeg':
+                    case 'jpg':
+                    case 'png':
+                        $extStatus = true;
+                        break;
+                    default:
+                        go("이미지 파일만 사용할 수 있습니다.", "/");
+                        exit;
+                }
+
+                if($fileType == 'image') {
+                    if($extStatus) {
+                        unlink("./profile/".$_SESSION['user']->profile);
+                        $imgname = time().$_FILES['profile']['name'];
+                        $resFile = "./profile/".$imgname;
+
+                        move_uploaded_file($img, $resFile);
+                        
+                        DB::query("UPDATE user SET pass = ?, profile = ? WHERE id = ?", [$pass, $imgname, $_SESSION['user']->id]);
+                        $_SESSION['user'] = DB::fetch("SELECT * FROM user WHERE id = ? AND pass = ?", [$_SESSION['user']->id, $pass]);
+                        go("회원정보 수정 완료", '/mypage');
+                    } else {
+                        go("이미지 파일이 아닙니다.", "/");
+                        exit;
+                    }
+                }
+            } else {
+                DB::query("UPDATE user SET pass = ? WHERE id = ?", [$pass, $_SESSION['user']->id]);
+                $_SESSION['user'] = DB::fetch("SELECT * FROM user WHERE id = ? AND pass = ?", [$_SESSION['user']->id, $pass]);
+                go("회원정보 수정 완료", '/mypage');
+            }
+            exit;
         }
     }

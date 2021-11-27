@@ -3,7 +3,6 @@
             <div class="box">
                 <div class="logo mb-3">
                     <h2>회원가입</h2>
-                    타 사이트에서 이용 중인 아이디나 비밀번호를 <b>절대</b> 사용하지 마세요.
                 </div>
                 <form action='/register' method="post" class="mid" enctype="multipart/form-data">
                     <div class="left">
@@ -25,19 +24,6 @@
                         <div class="img mb-4">
                             <img src="./resource/img/profile.png" alt="" class="imgPreview">
                             <input type="file" name="profile" id="profile" accept='image/*'>
-                        </div>
-                        <div class="cate mb-3">
-                            <h5 class="mb-4">카테고리</h5>
-                            <div class="box">
-                                <input type="checkbox" value="책" name="cate[]" id="temp1">
-                                <label for="temp1">책</label>
-                                <input type="checkbox" value="시" name="cate[]" id="temp2">
-                                <label for="temp2">시</label>
-                                <input type="checkbox" value="음악" name="cate[]" id="temp3">
-                                <label for="temp3">음악</label>
-                                <input type="checkbox" value="영화" name="cate[]" id="temp4">
-                                <label for="temp4">영화</label>
-                            </div>
                         </div>
                     </div>
 

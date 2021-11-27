@@ -24,7 +24,7 @@
             </div>
         </div>
     </header>
-    <section id='search'>
+    <section id='search' style="position:relative; padding-bottom:80px;">
         <div class='container my-5'>
             <h3>검색</h3>
             <div class="search mb-5">
@@ -49,6 +49,7 @@
             </div>
         </div>
 
+        <button class="btn btn-primary more mb-5">더 보기 10+</button>
         <div class="upbtn"><i class="fas fa-arrow-up"></i></div>
     </section>
     <script src="./resource/js/search.js"></script>

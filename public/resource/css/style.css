@@ -587,6 +587,8 @@ header ul li:not(li:nth-child(5)) {
 
 /* 리스트 */
 
+#list {position: relative; padding-bottom: 80px;}
+
 #list .cate {
     display: flex;
     justify-content: center;
@@ -646,6 +648,16 @@ header ul li:not(li:nth-child(5)) {
     right: 5%;
     bottom: 5%;
     cursor: pointer;
+}
+
+.more {
+    background-color: #003964;
+    border: none;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* 게시물 */
@@ -888,6 +900,26 @@ header ul li:not(li:nth-child(5)) {
 .mypage input[id='like']:checked ~ .like,
 .mypage input[id='save']:checked ~ .save {
     display: grid;
+}
+
+
+/* 프로필 수정 */
+
+.editpro .image {
+    display: flex;
+    align-items: center;
+}
+
+.editpro .image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.editpro .image label {
+    border: 1px solid #aaa;
+    background-color: #efefef;
+    padding: 6px 12px;
 }
 
 /* 검색 */

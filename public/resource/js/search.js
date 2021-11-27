@@ -1,4 +1,7 @@
 let searchbar = document.querySelector('#searchBar')
+let start = 0
+let type
+let keyword
 
 document.querySelector('.search-btn').addEventListener('click', e => {
     search()
@@ -11,24 +14,47 @@ searchbar.addEventListener('keyup', e => {
 })
 
 function search() {
-    let type = document.querySelector('#category').value
-    
+    type = document.querySelector('#category').value
+    start = 0
+    keyword = searchbar.value
+
     $.ajax({
         url:`/searchreq`,
         method:'post',
         data : {
             type,
-            keyword : searchbar.value
+            start,
+            keyword
         },
         dataType:'JSON',
         success : res => {
+            $('.list .box').html("")
             makeList(res)
         }
     })
 }
 
+document.querySelector('.more').addEventListener('click', e => {
+    start += 10
+    $.ajax({
+        url : `/searchreq`,
+        method : 'post',
+        data : {
+            type,
+            start,
+            keyword
+        },
+        dataType:'JSON',
+        success : res => {
+            makeList(res)
+        },
+        error : ad => {
+            console.log(ad)
+        }
+    })
+})
+
 function makeList(res) {
-    $('.list .box').html("")
     if(res.length) {
         res.forEach(item => {
             let box = `<div class="item">
@@ -45,7 +71,7 @@ function makeList(res) {
                                     ${tag(item.tag)}
                                 </div>
                                 <p style="word-break:break-all;">
-                                    ${item.content}
+                                ${item.content.length > 100 ? item.content.substr(0, 100)+'...' : item.content}
                                 </p>
     
                                 <div class="jab mt-4">

@@ -82,6 +82,7 @@
                 <?php endforeach; ?>
             </div>
 
+            <button class="btn btn-primary more mb-5">더 보기 10+</button>
             <div class="upbtn"><i class="fas fa-arrow-up"></i></div>
         </div>
     </section>
