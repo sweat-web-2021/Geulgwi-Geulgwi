@@ -86,3 +86,4 @@
 
 ## 💬 문의
 서비스 관련 문의는 [채널톡](https://geulgwi.channel.io)으로 문의주시면 빠르게 답변을 받으실 수 있습니다.
++ [2021-2 AJOU SOFTCON 포스터](document/poster.pdf)
