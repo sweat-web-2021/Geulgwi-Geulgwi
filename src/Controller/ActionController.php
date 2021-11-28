@@ -42,7 +42,7 @@
                         $extStatus = true;
                         break;
                     default:
-                        go("이미지 파일만 사용할 수 있습니다.", "/");
+                        go("이미지 파일(.jpg, .jpeg, .png)만 사용할 수 있습니다.", "/");
                         exit;
                 }
 
@@ -53,7 +53,7 @@
 
                         move_uploaded_file($img, $resFile);
                         
-                        DB::query("INSERT INTO user (id, pass, profile) VALUES (?, ?, ?)", [$id, $pass, $imgname]);
+                        DB::query("INSERT INTO user (id, pass, profile) VALUES (?, ?, ?)", [$id, password_hash($pass, PASSWORD_DEFAULT), $imgname]);
                         go("회원가입 되셨습니다", '/');
                     } else {
                         go("이미지 파일이 아닙니다.", "/");
@@ -61,7 +61,7 @@
                     }
                 }
             } else {
-                DB::query("INSERT INTO user (id, pass) VALUES (?, ?)", [$id, $pass]);
+                DB::query("INSERT INTO user (id, pass) VALUES (?, ?)", [$id, password_hash($pass, PASSWORD_DEFAULT)]);
                 go("회원가입 되셨습니다", '/');
             }
             exit;
@@ -71,13 +71,16 @@
             $id = $_POST['id'];
             $pass = $_POST['pass'];
 
-            $user = DB::fetch("SELECT * FROM user WHERE id = ? AND pass = ?", [$id, $pass]);
+            $user = DB::fetch("SELECT * FROM user WHERE id = ?", [$id]);
 
             if($user) {
-                $_SESSION['user'] = $user;
-                go("로그인 되셨습니다.", "/");
+                if(password_verify($pass, $user -> pass)){
+                    $_SESSION['user'] = $user;
+                    go("로그인 되셨습니다.", "/");
+                }
+                else back("비밀번호가 일치하지 않습니다.");
             } else {
-                back("아이디 또는 비밀번호가 일치하지 않습니다.");
+                back("존재하지 않는 아이디입니다.");
             }
 
             exit;

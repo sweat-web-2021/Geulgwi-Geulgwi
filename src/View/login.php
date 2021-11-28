@@ -16,8 +16,8 @@
                         <button style="width: 100%;" class="btn btn-primary login">로그인</button>
                     </form>
                     <div class="bot">
-                        <a href="#" style="margin-right: 50px;">아이디/비밀번호 찾기</a>
-                        <a href="#">회원가입</a>
+                        <a href="#" onClick="alert('준비중인 기능입니다.');" style="margin-right: 50px;">아이디/비밀번호 찾기</a>
+                        <a href="/register">회원가입</a>
                     </div>
                 </div>
             </div>

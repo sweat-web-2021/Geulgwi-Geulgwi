@@ -20,6 +20,7 @@
         }
 
         static function mypage() {
+            if(!isset($_SESSION['user'])) go("로그인 해주세요", '/login');
             $list = DB::fetchAll("SELECT * FROM list WHERE writer = ?", [$_SESSION['user']->id]);
             $list1 = DB::fetchAll("SELECT l.* FROM
                                    (SELECT * FROM liketable WHERE user_id = ?) AS lt
@@ -41,7 +42,7 @@
         }
 
         static function write() {
-            if(!isset($_SESSION['user'])) go("로그인 해주세요", '/list');
+            if(!isset($_SESSION['user'])) go("로그인 해주세요", '/login');
             view('write');
         }
 
