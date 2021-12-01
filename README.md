@@ -91,3 +91,7 @@
 ## 💬 문의
 서비스 관련 문의는 [채널톡](https://geulgwi.channel.io)으로 문의주시면 빠르게 답변을 받으실 수 있습니다.
 + [2021-2 AJOU SOFTCON 포스터](document/poster.pdf)
+
+<br><br>
+
+<p align="center"><a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsweat-web-2021%2FGeulgwi-Geulgwi&count_bg=%239B9B9B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=HITS&edge_flat=false"/></a></div>
