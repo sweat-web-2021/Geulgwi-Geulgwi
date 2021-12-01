@@ -34,7 +34,7 @@
                     <div style="font-size:30pt" class="user_name mb-3"><?= $_SESSION['user']->id ?></div>
                     <div class="edit">
                         <a href="/profileedit" class="edit-btn">프로필 편집</a>
-                        <i style="font-size:20px; margin-left:10px;" class="fas fa-cog"></i>
+                        <a href="#" onClick="alert('준비중인 기능입니다.');"><i style="font-size:20px; margin-left:10px; color:black;" class="fas fa-cog"></i></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                             </div>
                             <p style="word-break:break-all;">
                                 <?php
-                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? mb_substr($item->content, 0, 100)."..." : $item->content;
                                 ?>
                             </p>
     
@@ -111,7 +111,7 @@
                             </div>
                             <p style="word-break:break-all;">
                                 <?php
-                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? mb_substr($item->content, 0, 100)."..." : $item->content;
                                 ?>
                             </p>
     
@@ -152,7 +152,7 @@
                             </div>
                             <p style="word-break:break-all;">
                                 <?php
-                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? mb_substr($item->content, 0, 100)."..." : $item->content;
                                 ?>
                             </p>
     
