@@ -56,7 +56,7 @@
                         <img src="./resource/img/banner2.png" alt="">
                     </div>
                     <div class="image image-3">
-                        <a href="https://softcon.ajou.ac.kr/"><img src="./resource/img/banner3.png" alt=""></a>
+                        <a href="https://softcon.ajou.ac.kr/works/works.asp?uid=486&grp=A"><img src="./resource/img/banner3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="labels">
@@ -121,7 +121,7 @@
                                 </div>
                                 <p style="word-break:break-all;">
                                     <?php
-                                        echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                        echo mb_strlen($item->content, "UTF-8") > 100 ? mb_substr($item->content, 0, 100, "UTF-8")."..." : $item->content;
                                     ?>
                                 </p>
         

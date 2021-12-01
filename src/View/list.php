@@ -63,10 +63,9 @@
                             
                             <p style="word-break:break-all;">
                                 <?php
-                                    echo mb_strlen($item->content, "UTF-8") > 100 ? substr($item->content, 0, 100)."..." : $item->content;
+                                    echo mb_strlen($item->content, "UTF-8") > 100 ? mb_substr($item->content, 0, 100, "UTF-8")."..." : $item->content;
                                 ?>
                             </p>
-    
                             <div class="jab mt-4">
                                 <div class="good">
                                     <i style="font-size:24px;" class="far fa-star"></i>
@@ -79,6 +78,7 @@
                             </div>
                         </a>
                     </div>
+                
                 <?php endforeach; ?>
             </div>
 
