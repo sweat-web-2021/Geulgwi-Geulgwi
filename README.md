@@ -38,7 +38,7 @@
 **신이선([@sun04303](https://github.com/sun04303))**    
 + 서비스 기획, 프론트엔드 및 백엔드 개발    
 
-**이준영([@soft-jun](https://github.com/))**    
+**이준영([@soft-jun](https://github.com/soft-jun))**    
 + 서비스 기획, UI 및 UX 디자인    
 
 **홍명철([@hmc1206](https://github.com/hmc1206))**    
