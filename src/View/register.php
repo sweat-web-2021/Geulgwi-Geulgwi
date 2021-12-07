@@ -1,4 +1,4 @@
-<section>
+    <section>
         <div class="container" id="register">
             <div class="box">
                 <div class="logo mb-3">

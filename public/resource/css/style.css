@@ -479,7 +479,7 @@ header ul li:not(li:nth-child(5)) {
 /* 로그인 */
 
 #login {
-    height: 937px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -502,25 +502,23 @@ header ul li:not(li:nth-child(5)) {
 /* 회원가입 */
 
 #register {
-    margin-top: 190.31px;
-
-    border: 1px solid #aaa;
-    padding: 45px 40px 15px;
-    border-radius: 30px;
-
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-#register .logo img {
-    width: 150px;
 }
 
 #register > .box {
     width: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid #aaa;
+    padding: 45px 40px 15px;
+    border-radius: 30px;
+}
+
+#register .logo img {
+    width: 150px;
 }
 
 #register > .box .mid {
