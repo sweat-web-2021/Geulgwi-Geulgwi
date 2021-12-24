@@ -4,7 +4,7 @@
         static $db = null;
         static function getDB() {
             if(self::$db == null) {
-                self::$db = new \PDO("mysql:host=localhost; dbname=geulgwi; charset=utf8mb4", "root", "", [
+                self::$db = new \PDO("mysql:host=localhost; dbname=text; charset=utf8mb4", "root", "Hmc041206!", [
                     19=>5,
                     3=>2
                 ]);
