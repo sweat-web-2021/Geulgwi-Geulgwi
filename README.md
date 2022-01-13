@@ -1,8 +1,3 @@
-### 사용자 피드백을 받고 있습니다. 추첨을 통해 기프티콘을 증정하고 있으니 많은 참여 부탁드립니다.
-[![image](https://user-images.githubusercontent.com/43088187/144735166-16acf645-542f-4a79-bec1-81da78470bee.png)](https://forms.gle/ZkyfYgZdcrYdgacT7)
-
-<hr><br>
-
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -14,18 +9,10 @@
 
 # 글귀글귀
 세상의 모든 글귀가 다 모였다!    
-글귀글귀는 쉽고 편한 글귀 검색 및 등록을 지원하는 플랫폼입니다.    
-+ 링크: http://글귀글귀.site    
-+ 예비 링크: https://geulgwi.run.goorm.io    
-
-> ❗ **주의**    
-> 글귀글귀는 현재 개발용 서버로 운영 중입니다. 민감한 정보를 저장하는 용도로 사용하지 마세요.
+글귀글귀는 쉽고 편한 글귀 검색 및 등록을 지원하는 플랫폼입니다.      
 
 > ❗ **주의**    
 > 본 사이트는 PC 환경에서**만** 실행이 가능합니다. 모바일은 추후 서비스 예정입니다.
-
-> ✔ **안내**    
-> 깃허브에 업로드 되어있는 소스코드와 실제 서버의 소스코드는 일부 다를 수 있습니다.     
 
 <br>
 
@@ -34,8 +21,7 @@
 2. [프로젝트 개요](#-프로젝트-개요)
 3. [캡쳐 화면](#-캡쳐-화면)
 4. [사용 언어 및 라이브러리](#-사용-언어-및-라이브러리)
-5. [서버 정보](#-서버-정보)
-6. [문의](#-문의)
+5. [문의](#-문의)
 
 <br>
 
@@ -80,16 +66,6 @@
 |프론트엔드|HTML, CSS, JS, Bootstrap, FontAwesome|
 |백엔드 및 서버|PHP, MySQL(MariaDB), Apache, XAMPP|
 |버전 관리 및 협업|GitHub|
-
-<br>
-
-## ⚙ 서버 정보
-|분류|버전|
-|:---:|:---:|
-|운영체제|Ubuntu 18.04.2 LTS|
-|Apache Web Server|2.4.29|
-|PHP|7.3.31|
-|MySQL|14.14 Distrib 5.7.36|
 
 <br>
 
